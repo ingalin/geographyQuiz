@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geography Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Rokkitt&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="wrapper headerStyles">
+            <img class="firstImg" src="styles/assets/hiclipart1.png" alt="image of globe with world's famous places">
+            <div class="wrapper shadow">
+                <div class="headerText">
+                    <h1>Geography Quiz</h1>
+                    <h2>Easy Questions for Class 1, 2 & 3</h2>
+                </div>
+            </div>
+            <div class="wrapper">
+                <button class="start" type="submit">Start Quiz</button>
+            </div>
+            <img class="secondImg" src="styles/assets/hiclipart2.png" alt="image of globe with world's famous places">
+        <div>
+    </header>
+    <main class="hide">
+        <div class="wrapper">
+
+        <!-- <div id='answer' aria-live='polite'>
+and your javascript would have something like this:
+
+<script>
+document.getElementById('answer').innerHTML = 'Sorry, answer B is wrong.  The correct answer is C.'
+</script> -->
+
+
+        <!-- The <input type="radio" class="check"> defines a radio button.
+
+Radio buttons are normally presented in radio groups (a collection of radio buttons describing a set of related options). Only one radio button in a group can be selected at the same time.
+
+Note: The radio group must have share the same name (the value of the name attribute) to be treated as a group. Once the radio group is created, selecting any radio button in that group automatically deselects any other selected radio button in the same group. You can have as many radio groups on a page as you want, as long as each group has its own name.
+
+Note: The value attribute defines the unique value associated with each radio button. The value is not shown to the user, but is the value that is sent to the server on "submit" to identify which radio button that was selected.
+
+Tip: Always add the <label> tag for best accessibility practices! -->
+
+        <div class="mistakes" aria-live="polite">
+            <p>0</p>
+        </div>
+            <form action="#" method="#" class="hide" name="form1" autocomplete="off">
+                <fieldset>
+                    <legend>Which country has the largest population in the world?</legend>
+                    <div>
+                        <input type="radio" class="check" id="usa" name="population" value="usa" required>
+                        <label for="usa">USA</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="chinaCorrect" name="population" value="correct" required>
+                        <label for="chinaCorrect">China</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="india" name="population" value="india" required>
+                        <label for="india">India</label>
+                    </div>
+                    <button class="submit" type="submit">Submit</button>
+                </fieldset>
+            </form>
+
+            <form action="#" method="#" class="hide" name="form2" autocomplete="off">
+                <fieldset>
+                    <legend>Which is the largest country in the world?</legend>
+                    <div>
+                        <input type="radio" class="check" id="russiaCorrect" name="country" value="correct" required>
+                        <label for="russiaCorrect">Russia</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="brazil" name="country" value="brazil" required>
+                        <label for="brazil">Brazil</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="usa1" name="country" value="usa1" required>
+                        <label for="usa1">USA</label>
+                    </div>
+                    <button class="submit" type="submit">Submit</button>
+                </fieldset>
+            </form>
+
+            <form action="#" method="#" class="hide" name="form3" autocomplete="off">
+                <fieldset>
+                    <legend>What are the names of the five oceans?</legend>
+                    <div>
+                        <input type="radio" class="check" id="west" name="ocean" value="west" required>
+                        <label for="west">Pacific, Atlantic, West, Arctic and Southern</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="northen" name="ocean" value="northen" required>
+                        <label for="northen">Pacific, Atlantic, Indian, Arctic and Northen</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="southernCorrect" name="ocean" value="correct" required>
+                        <label for="southernCorrect">Pacific, Atlantic, Indian, Arctic and Southern</label>
+                    </div>
+                    <button class="submit" type="submit">Submit</button>
+                </fieldset>
+            </form>
+
+            <form action="#" method="#" class="hide" name="form4" autocomplete="off">
+                <fieldset>
+                    <legend>In which country would you find the Leaning Tower of Pisa?</legend>
+                    <div>
+                        <input type="radio" class="check" id="germany" name="italy" value="germany" required>
+                        <label for="germany">Germany</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="france" name="italy" value="france" required>
+                        <label for="france">France</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="italyCorrect" name="italy" value="correct" required>
+                        <label for="italyCorrect">Italy</label>
+                    </div>
+                    <button class="submit" type="submit">Submit</button>
+                </fieldset>
+            </form>
+
+            <form action="#" method="#" class="hide" name="form5" autocomplete="off">
+                <fieldset>
+                    <legend>Which country is the second biggest in the world?</legend>
+                    <div>
+                        <input type="radio" class="check" id="usa2" name="second" value="usa2" required>
+                        <label for="usa2">USA</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="canadaCorrect" name="second" value="correct" required>
+                        <label for="canadaCorrect">Canada</label> 
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="russia" name="second" value="russia" required>
+                        <label for="russia">Russia</label>
+                    </div>
+                    <button class="submit" type="submit">Submit</button>
+                </fieldset>
+            </form>
+
+            <form action="#" method="#" class="hide" name="form6" autocomplete="off">
+                <fieldset>
+                    <legend>The United States consists of how many states?</legend>
+                    <div>
+                        <input type="radio" class="check" id="states48" name="states" value="states48" required>
+                        <label for="states48">48</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="statesCorrect" name="states" value="correct" required>
+                        <label for="statesCorrect">50</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="states52" name="states" value="states52" required>
+                        <label for="states52">52</label>
+                    </div>
+                    <button class="submit" type="submit">Submit</button>
+                </fieldset>
+            </form>
+
+            <form action="#" method="#" class="hide" name="form7" autocomplete="off">
+                <fieldset>
+                    <legend>What is the name of the biggest ocean on Earth?</legend>
+                    <div>
+                        <input type="radio" class="check" id="indian" name="pacific" value="indian" required>
+                        <label for="indian">The Indian Ocean</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="atlantic" name="pacific" value="atlantic" required>
+                        <label for="atlantic">The Atlantic Ocean</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="pacificCorrect" name="pacific" value="correct" required>
+                        <label for="pacificCorrect">The Pacific Ocean</label>
+                    </div>
+                    <button class="submit" type="submit">Submit</button>
+                </fieldset>
+            </form>
+
+            <form action="#" method="#" class="hide" name="form8" autocomplete="off">
+                <fieldset>
+                    <legend>Which is the largest waterfall in the world?</legend>
+                    <div>
+                        <input type="radio" class="check" id="niagara" name="waterfall" value="niagara" required>
+                        <label for="niagara">Niagara Falls</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="victoriaCorrect" name="waterfall" value="correct" required>
+                        <label for="victoriaCorrect">Victoria Falls</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="iguazu" name="waterfall" value="iguazu" required>
+                        <label for="iguazu">Iguazu Falls</label>
+                    </div>
+                    <button class="submit" type="submit">Submit</button>
+                </fieldset>
+            </form>
+
+            <form action="#" method="#" class="hide" name="form9" autocomplete="off">
+                <fieldset>
+                    <legend>Which is the biggest desert in the world?</legend>
+                    <div>
+                        <input type="radio" class="check" id="saharaCorrect" name="desert" value="correct" required>
+                        <label for="saharaCorrect">Sahara Desert</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="gobi" name="desert" value="gobi" required>
+                        <label for="gobi">Gobi Desert</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="arabian" name="desert" value="arabian" required>
+                        <label for="arabian">Arabian Desert</label>
+                    </div>
+                    <button class="submit" type="submit">Submit</button>
+                </fieldset>
+            </form>
+
+            <form action="#" method="#" class="hide" name="form10" autocomplete="off">
+                <fieldset>
+                    <legend>Which is the hottest continent on Earth?</legend>
+                    <div>
+                        <input type="radio" class="check" id="south" name="hot" value="south" required>
+                        <label for="south">South America</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="africaCorrect" name="hot" value="correct" required>
+                        <label for="africaCorrect">Africa</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="australia" name="hot" value="australia" required>
+                        <label for="australia">Australia</label>
+                    </div>
+                    <button class="submit" type="submit">Submit</button>
+                </fieldset>
+            </form> 
+
+            <form action="#" method="#" class="hide" name="form11" autocomplete="off">
+                <fieldset>
+                    <legend>Which is the highest mountain in the world?</legend>
+                    <div>
+                        <input type="radio" class="check" id="k2" name="mountain" value="k2" required>
+                        <label for="k2">Mount K2</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="kilimanjaro" name="mountain" value="kilimanjaro" required>
+                        <label for="kilimanjaro">Mount Kilimanjaro</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="everestCorrect" name="mountain" value="correct" required>
+                        <label for="everestCorrect">Mount Everest</label>   
+                    </div>
+                    <button class="submit" type="submit">Submit</button>
+                </fieldset>
+            </form>
+
+            <form action="#" method="#" class="hide" name="form12" autocomplete="off">
+                <fieldset>
+                    <legend>Which is the coldest place on Earth?</legend>
+                    <div>
+                        <input type="radio" class="check" id="north" name="cold" value="north" required>
+                        <label for="north">North Pole</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="greenland" name="cold" value="greenland" required>
+                        <label for="greenland">Greenland</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="antarcticaCorrect" name="cold" value="correct" required>
+                        <label for="antarcticaCorrect">Antarctica</label>
+                    </div>
+                    <button class="submit" type="submit">Submit</button>
+                </fieldset>
+            </form> 
+
+            <form action="#" method="#" class="hide" name="form13" autocomplete="off">
+                <fieldset>
+                    <legend>What is the capital city of Canada?</legend>
+                    <div>
+                        <input type="radio" class="check" id="montreal" name="canada" value="montreal" required>
+                        <label for="montreal">Montreal</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="ottawaCorrect" name="canada" value="correct" required>
+                        <label for="ottawaCorrect">Ottawa</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="toronto" name="canada" value="toronto" required>
+                        <label for="toronto">Toronto</label>
+                    </div>
+                    <button class="submit" type="submit">Submit</button>
+                </fieldset>
+            </form> 
+
+            <form action="#" method="#" class="hide" name="form14" autocomplete="off">
+                <fieldset>
+                    <legend>Which is the largest lake in north America?</legend>
+                    <div>
+                        <input type="radio" class="check" id="superiorCorrect" name="lake" value="correct" required>
+                        <label for="superiorCorrect">Lake Superior</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="huron" name="lake" value="huron" required>
+                        <label for="huron">Huron</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="michigan" name="lake" value="michigan" required>
+                        <label for="michigan">Michigan</label>
+                    </div>
+                    <button class="submit" type="submit">Submit</button>
+                </fieldset>
+            </form> 
+
+            <form action="#" method="#" class="hide" name="form15" autocomplete="off">
+                <fieldset>
+                    <legend>Which river flows through the rainforest in Brazil?</legend>
+                    <div>
+                        <input type="radio" class="check" id="nile" name="river" value="nile" required>
+                        <label for="nile">Nile</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="mississippi" name="river" value="mississippi" required>
+                        <label for="mississippi">Mississippi</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="amazonCorrect" name="river" value="correct" required>
+                        <label for="amazonCorrect">Amazon</label>
+                    </div>   
+                    <button class="submit" type="submit">Submit</button>
+                </fieldset>
+            </form> 
+
+            <form action="#" method="#" class="hide" name="form16" autocomplete="off">
+                <fieldset>
+                    <legend>Where are the Andes mountains located?</legend>
+                    <div>
+                        <input type="radio" class="check" id="southCorrect" name="andes" value="correct" required>
+                        <label for="southCorrect">South America</label> 
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="northAmerica" name="andes" value="northAmerica" required>
+                        <label for="northAmerica">North America</label> 
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="asia" name="andes" value="asia" required>
+                        <label for="asia">Asia</label>
+                    </div>
+                    <button class="submit" type="submit">Submit</button>
+                </fieldset>
+            </form> 
+
+            <form action="#" method="#" class="hide" name="form17" autocomplete="off">
+                <fieldset>
+                    <legend>Ljubljana is the capital of which country?</legend>
+                    <div>
+                        <input type="radio" class="check" id="spain" name="slovenia" value="spain" required>
+                        <label for="spain">Spain</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="sloveniaCorrect" name="slovenia" value="correct" required>
+                        <label for="sloveniaCorrect">Slovenia</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="poland" name="slovenia" value="poland" required>
+                        <label for="poland">Poland</label>
+                    </div>
+                    <button class="submit" type="submit">Submit</button>
+                </fieldset>
+            </form> 
+
+            <form action="#" method="#" class="hide" name="form18" autocomplete="off">
+                <fieldset>
+                    <legend>Which country is also known as Holland?</legend>
+                    <div>
+                        <input type="radio" class="check" id="netherlandsCorrect" name="holland" value="correct" required>
+                        <label for="netherlandsCorrect">The Netherlands</label> 
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="france" name="holland" value="france" required>
+                        <label for="france">France</label>  
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="britain" name="holland" value="britain" required>
+                        <label for="britain">Great Britain</label>
+                    </div>
+                    <button class="submit" type="submit">Submit</button>
+                </fieldset>
+            </form> 
+
+            <form action="#" method="#" class="hide" name="form19" autocomplete="off">
+                <fieldset>
+                    <legend>What is the capital city of Spain?</legend>
+                    <div>
+                        <input type="radio" class="check" id="paris" name="spain" value="paris" required>
+                        <label for="paris">Paris</label>    
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="berlin" name="spain" value="berlin" required>
+                        <label for="berlin">Berlin</label>  
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="madridCorrect" name="spain" value="correct" required>
+                        <label for="madridCorrect">Madrid</label>
+                    </div>
+                    <button class="submit" type="submit">Submit</button>
+                </fieldset>
+            </form> 
+
+            <form action="#" method="#" class="hide" name="form20" autocomplete="off">
+                <fieldset>
+                    <legend>Which is the smallest country in the world?</legend>
+                    <div>
+                        <input type="radio" class="check" id="monaco" name="smallest" value="monaco" required>
+                        <label for="monaco">Monaco</label> 
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="vaticanCorrect" name="smallest" value="correct" required>
+                        <label for="vaticanCorrect">Vatican City</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="check" id="liechtenstein" name="smallest" value="liechtenstein" required>
+                        <label for="liechtenstein">Liechtenstein</label>
+                    </div>
+                    <button class="submit" type="submit">Submit</button>
+                </fieldset>
+            </form>
+            <div class="error" aria-live="polite"></div>
+        </div>
+    </main>
+
+    <script src='https://code.jquery.com/jquery-3.5.1.js' integrity='sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=' crossorigin='anonymous'></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
