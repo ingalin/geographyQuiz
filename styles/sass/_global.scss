@@ -1,0 +1,82 @@
+// $darkGreyBlue: #285e64;
+$white: #ffffff;
+$background: rgba(0, 0, 0, 0.4);
+
+@mixin fontSquare(){
+    font-family: 'Nova Square', cursive;
+}
+
+@mixin fontRokkit(){
+    font-family: 'Rokkitt', serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    @include fontSquare();
+    font-size: 2rem;
+    // color: #186684;
+    line-height: 2.9rem;
+}
+
+.wrapper {
+    max-width: 1140px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+button {
+    color: rgb(95, 21, 34);
+    padding: 10px 30px;
+    text-decoration: none;
+    margin: 20px;
+}
+
+button:hover, button:focus {
+    // background: #1f2022;
+    color: #f4f4f4;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+h1 {
+    @include fontRokkit();
+    color: $white;
+    font-size: 9rem;
+    letter-spacing: 0.5rem;
+    font-weight: 200;
+    line-height: 1.2;
+    margin: 0;
+}
+
+h2 {
+    color: $white;
+}
+
+// Hide or Show
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.hideSubmit {
+    visibility: hidden;
+}
+
+.showSubmit {
+    visibility: visible;
+}

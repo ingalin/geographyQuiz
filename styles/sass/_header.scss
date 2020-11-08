@@ -1,0 +1,46 @@
+header {
+    background: url(./assets/pinkBackground.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.headerStyles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 600px;
+    height: 100vh;
+    padding-bottom: 50px;
+}
+
+.headerText {
+    text-align: center;
+    background-color: $background;
+    padding: 30px 30px 60px;
+}
+
+.shadow {
+    box-shadow: 
+        0 0 60px 4rem #F4AAB9,
+        0 0 70px 6rem #66CCFF;
+    margin: 100px;
+    margin-top: 150px;
+    padding: 30px;
+}
+
+header img {
+    position: absolute;
+    width: 50%;
+}
+
+.firstImg {
+    top: 0;
+    left: -5%;
+}
+
+.secondImg {
+    bottom: 0;
+    right: 0;
+}
