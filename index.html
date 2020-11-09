@@ -25,30 +25,11 @@
             <img class="secondImg" src="styles/assets/hiclipart2.png" alt="image of globe with world's famous places">
         <div>
     </header>
+
     <main class="hide">
+        <div class="levels" aria-live="polite"></div>
+
         <div class="wrapper">
-
-        <!-- <div id='answer' aria-live='polite'>
-and your javascript would have something like this:
-
-<script>
-document.getElementById('answer').innerHTML = 'Sorry, answer B is wrong.  The correct answer is C.'
-</script> -->
-
-
-        <!-- The <input type="radio" class="check"> defines a radio button.
-
-Radio buttons are normally presented in radio groups (a collection of radio buttons describing a set of related options). Only one radio button in a group can be selected at the same time.
-
-Note: The radio group must have share the same name (the value of the name attribute) to be treated as a group. Once the radio group is created, selecting any radio button in that group automatically deselects any other selected radio button in the same group. You can have as many radio groups on a page as you want, as long as each group has its own name.
-
-Note: The value attribute defines the unique value associated with each radio button. The value is not shown to the user, but is the value that is sent to the server on "submit" to identify which radio button that was selected.
-
-Tip: Always add the <label> tag for best accessibility practices! -->
-
-        <div class="mistakes" aria-live="polite">
-            <p>0</p>
-        </div>
             <form action="#" method="#" class="hide" name="form1" autocomplete="off">
                 <fieldset>
                     <legend>Which country has the largest population in the world?</legend>
@@ -64,7 +45,7 @@ Tip: Always add the <label> tag for best accessibility practices! -->
                         <input type="radio" class="check" id="india" name="population" value="india" required>
                         <label for="india">India</label>
                     </div>
-                    <button class="submit" type="submit">Submit</button>
+                    <button class="submit hideSubmit" type="submit">Submit</button>
                 </fieldset>
             </form>
 
@@ -83,7 +64,7 @@ Tip: Always add the <label> tag for best accessibility practices! -->
                         <input type="radio" class="check" id="usa1" name="country" value="usa1" required>
                         <label for="usa1">USA</label>
                     </div>
-                    <button class="submit" type="submit">Submit</button>
+                    <button class="submit hideSubmit" type="submit">Submit</button>
                 </fieldset>
             </form>
 
@@ -102,7 +83,7 @@ Tip: Always add the <label> tag for best accessibility practices! -->
                         <input type="radio" class="check" id="southernCorrect" name="ocean" value="correct" required>
                         <label for="southernCorrect">Pacific, Atlantic, Indian, Arctic and Southern</label>
                     </div>
-                    <button class="submit" type="submit">Submit</button>
+                    <button class="submit hideSubmit" type="submit">Submit</button>
                 </fieldset>
             </form>
 
@@ -121,7 +102,7 @@ Tip: Always add the <label> tag for best accessibility practices! -->
                         <input type="radio" class="check" id="italyCorrect" name="italy" value="correct" required>
                         <label for="italyCorrect">Italy</label>
                     </div>
-                    <button class="submit" type="submit">Submit</button>
+                    <button class="submit hideSubmit" type="submit">Submit</button>
                 </fieldset>
             </form>
 
@@ -140,7 +121,7 @@ Tip: Always add the <label> tag for best accessibility practices! -->
                         <input type="radio" class="check" id="russia" name="second" value="russia" required>
                         <label for="russia">Russia</label>
                     </div>
-                    <button class="submit" type="submit">Submit</button>
+                    <button class="submit hideSubmit" type="submit">Submit</button>
                 </fieldset>
             </form>
 
@@ -159,7 +140,7 @@ Tip: Always add the <label> tag for best accessibility practices! -->
                         <input type="radio" class="check" id="states52" name="states" value="states52" required>
                         <label for="states52">52</label>
                     </div>
-                    <button class="submit" type="submit">Submit</button>
+                    <button class="submit hideSubmit" type="submit">Submit</button>
                 </fieldset>
             </form>
 
@@ -178,7 +159,7 @@ Tip: Always add the <label> tag for best accessibility practices! -->
                         <input type="radio" class="check" id="pacificCorrect" name="pacific" value="correct" required>
                         <label for="pacificCorrect">The Pacific Ocean</label>
                     </div>
-                    <button class="submit" type="submit">Submit</button>
+                    <button class="submit hideSubmit" type="submit">Submit</button>
                 </fieldset>
             </form>
 
@@ -197,7 +178,7 @@ Tip: Always add the <label> tag for best accessibility practices! -->
                         <input type="radio" class="check" id="iguazu" name="waterfall" value="iguazu" required>
                         <label for="iguazu">Iguazu Falls</label>
                     </div>
-                    <button class="submit" type="submit">Submit</button>
+                    <button class="submit hideSubmit" type="submit">Submit</button>
                 </fieldset>
             </form>
 
@@ -216,7 +197,7 @@ Tip: Always add the <label> tag for best accessibility practices! -->
                         <input type="radio" class="check" id="arabian" name="desert" value="arabian" required>
                         <label for="arabian">Arabian Desert</label>
                     </div>
-                    <button class="submit" type="submit">Submit</button>
+                    <button class="submit hideSubmit" type="submit">Submit</button>
                 </fieldset>
             </form>
 
@@ -235,7 +216,7 @@ Tip: Always add the <label> tag for best accessibility practices! -->
                         <input type="radio" class="check" id="australia" name="hot" value="australia" required>
                         <label for="australia">Australia</label>
                     </div>
-                    <button class="submit" type="submit">Submit</button>
+                    <button class="submit hideSubmit" type="submit">Submit</button>
                 </fieldset>
             </form> 
 
@@ -254,7 +235,7 @@ Tip: Always add the <label> tag for best accessibility practices! -->
                         <input type="radio" class="check" id="everestCorrect" name="mountain" value="correct" required>
                         <label for="everestCorrect">Mount Everest</label>   
                     </div>
-                    <button class="submit" type="submit">Submit</button>
+                    <button class="submit hideSubmit" type="submit">Submit</button>
                 </fieldset>
             </form>
 
@@ -273,7 +254,7 @@ Tip: Always add the <label> tag for best accessibility practices! -->
                         <input type="radio" class="check" id="antarcticaCorrect" name="cold" value="correct" required>
                         <label for="antarcticaCorrect">Antarctica</label>
                     </div>
-                    <button class="submit" type="submit">Submit</button>
+                    <button class="submit hideSubmit" type="submit">Submit</button>
                 </fieldset>
             </form> 
 
@@ -292,7 +273,7 @@ Tip: Always add the <label> tag for best accessibility practices! -->
                         <input type="radio" class="check" id="toronto" name="canada" value="toronto" required>
                         <label for="toronto">Toronto</label>
                     </div>
-                    <button class="submit" type="submit">Submit</button>
+                    <button class="submit hideSubmit" type="submit">Submit</button>
                 </fieldset>
             </form> 
 
@@ -311,7 +292,7 @@ Tip: Always add the <label> tag for best accessibility practices! -->
                         <input type="radio" class="check" id="michigan" name="lake" value="michigan" required>
                         <label for="michigan">Michigan</label>
                     </div>
-                    <button class="submit" type="submit">Submit</button>
+                    <button class="submit hideSubmit" type="submit">Submit</button>
                 </fieldset>
             </form> 
 
@@ -330,7 +311,7 @@ Tip: Always add the <label> tag for best accessibility practices! -->
                         <input type="radio" class="check" id="amazonCorrect" name="river" value="correct" required>
                         <label for="amazonCorrect">Amazon</label>
                     </div>   
-                    <button class="submit" type="submit">Submit</button>
+                    <button class="submit hideSubmit" type="submit">Submit</button>
                 </fieldset>
             </form> 
 
@@ -349,7 +330,7 @@ Tip: Always add the <label> tag for best accessibility practices! -->
                         <input type="radio" class="check" id="asia" name="andes" value="asia" required>
                         <label for="asia">Asia</label>
                     </div>
-                    <button class="submit" type="submit">Submit</button>
+                    <button class="submit hideSubmit" type="submit">Submit</button>
                 </fieldset>
             </form> 
 
@@ -368,7 +349,7 @@ Tip: Always add the <label> tag for best accessibility practices! -->
                         <input type="radio" class="check" id="poland" name="slovenia" value="poland" required>
                         <label for="poland">Poland</label>
                     </div>
-                    <button class="submit" type="submit">Submit</button>
+                    <button class="submit hideSubmit" type="submit">Submit</button>
                 </fieldset>
             </form> 
 
@@ -380,14 +361,14 @@ Tip: Always add the <label> tag for best accessibility practices! -->
                         <label for="netherlandsCorrect">The Netherlands</label> 
                     </div>
                     <div>
-                        <input type="radio" class="check" id="france" name="holland" value="france" required>
-                        <label for="france">France</label>  
+                        <input type="radio" class="check" id="france1" name="holland" value="france1" required>
+                        <label for="france1">France</label>  
                     </div>
                     <div>
                         <input type="radio" class="check" id="britain" name="holland" value="britain" required>
                         <label for="britain">Great Britain</label>
                     </div>
-                    <button class="submit" type="submit">Submit</button>
+                    <button class="submit hideSubmit" type="submit">Submit</button>
                 </fieldset>
             </form> 
 
@@ -406,7 +387,7 @@ Tip: Always add the <label> tag for best accessibility practices! -->
                         <input type="radio" class="check" id="madridCorrect" name="spain" value="correct" required>
                         <label for="madridCorrect">Madrid</label>
                     </div>
-                    <button class="submit" type="submit">Submit</button>
+                    <button class="submit hideSubmit" type="submit">Submit</button>
                 </fieldset>
             </form> 
 
@@ -425,10 +406,12 @@ Tip: Always add the <label> tag for best accessibility practices! -->
                         <input type="radio" class="check" id="liechtenstein" name="smallest" value="liechtenstein" required>
                         <label for="liechtenstein">Liechtenstein</label>
                     </div>
-                    <button class="submit" type="submit">Submit</button>
+                    <button class="submit hideSubmit" type="submit">Submit</button>
                 </fieldset>
             </form>
-            <div class="error" aria-live="polite"></div>
+            <div class="timer" aria-live="polite"><p>5</p></div>
+            <div class="mistakes" aria-live="polite"><p>0</p></div>
+
         </div>
     </main>
 
