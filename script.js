@@ -16,13 +16,32 @@
 
 
 const app = {};
-let incorrectAnswer = 0;
 let interval;
-let timeCount = 5;
+let timeCount = 10;
+let startTime = 10;
+let incorrectAnswer = 0;
 let questionLevelCount = 0;
-let levels = 1;
+let levels = 0;
 const maxQuestionsPerLevel = 5;
-const startTime = 5;
+const gameOver = 3;
+
+
+// Game over after incorrect answers
+app.countIncorrectAnswers = function (){
+    incorrectAnswer++;
+    if (incorrectAnswer == gameOver) {
+        clearInterval(interval);
+        $("main").html(`<h3>Game Over</h3>`);
+    };
+}
+
+//Function for incorrect answers
+app.incorect = function () {
+    app.countIncorrectAnswers();
+    $(".mistakes").html(`<p>${incorrectAnswer}</p>`);
+    // If certain number of questions reached, go to the next level
+    app.nextLevel();
+}
 
 //Function to change order
 app.randomOrder = function (itemToOrder) {
@@ -32,21 +51,22 @@ app.randomOrder = function (itemToOrder) {
     }
 }
 
-//Function for incorrect answers
-app.incorect = function () {
-    incorrectAnswer++;
-    $(".mistakes").html(`<p>${incorrectAnswer}</p>`);
-    // If certain number of questions reached, go to the next level
-    app.nextLevel();
-}
-
 // If certain number of questions reached, go to the next level
 app.nextLevel = function () {
     if (questionLevelCount == maxQuestionsPerLevel) {
         $(".show").first().remove();
         clearInterval(interval);
+        timeCount = timeCount - 2;
+        startTime = startTime - 2;
         levels++;
-        $(".levels").append(`<h2 class="start2">Congratulations! Level ${levels} completed!</h2><button class="start2" type="submit">Next Level</button>`);
+        $(".levels").append(`<h2 class="start2">Congratulations! Level ${levels} completed!</h2><p>You have ${timeCount} seconds to answer next questions</p><button class="start2" type="submit">Next Level</button>`);
+        if (incorrectAnswer > 0) {
+            incorrectAnswer--;
+            $(".mistakes").fadeIn("slow").html(`<p>${incorrectAnswer} you get one extra point for reaching a level</p>`);
+        }
+        else {
+            $(".mistakes").html(`<p>${incorrectAnswer}</p>`);
+        }
     };
 };
 
@@ -55,8 +75,9 @@ app.timeout = function () {
     timeCount--;
     // If certain amount of time passed, go to the next question, reduce points for an incorrect answer
     if (timeCount < 0) {
-        timeCount = 5;
-        incorrectAnswer++;
+        timeCount = startTime;
+        // Count incorrect answers
+        app.countIncorrectAnswers();
         questionLevelCount++;
         // If certain number of questions reached, go to the next level
         app.nextLevel();
@@ -72,7 +93,7 @@ app.timeout = function () {
 app.timer = function () {
     interval = setInterval(function () {
         app.timeout();
-    }, 800);
+    }, 1000);
 // }, 1000);
 };
 
@@ -80,15 +101,18 @@ app.timer = function () {
 app.init = function () {
 
 // Pievienot skaidrojumu, kaa speeleet!!!!!!!
-//paarsaukt global variables uz app.
+//paarsaukt global variables uz app. 
 
 
     //Press start button
     $(".start").on('click', function(event){
         // Prevent Default 
         event.preventDefault();
+        $(".levels").empty();
+
         // Timer
         app.timer();
+        $(".timer").html(`<p>${timeCount}</p>`);
 
         // Order forms in a random order
         let formRandom = [];
@@ -99,7 +123,7 @@ app.init = function () {
 
         //Hide Header, show the first question, make the answers random
         let inputLabelDiv = [];
-        $(this).closest("header").addClass("hide").next("main").removeClass("hide").find(".hide").first().addClass("show").find('div').each(function () {
+        $(this).closest("header").addClass("hide").next("main").removeClass("hide").find(".hide").first().addClass("show").find('div').each (function () {
             inputLabelDiv.push($(this));
         });
         app.randomOrder(inputLabelDiv);
@@ -117,10 +141,12 @@ app.init = function () {
     $("main").on('click', ".start2", function (event) {
         // Prevent Default 
         event.preventDefault();
+
         //Trigger first start button to do all the same functions from the start
         $(".start").trigger('click');
         $(this).closest("div").empty();
         questionLevelCount = 0;
+
     });
 
 
@@ -131,7 +157,7 @@ app.init = function () {
         questionLevelCount++;
         // Restart timer
         clearInterval(interval);
-        k = 5;
+        timeCount = startTime;
         $(".timer").html(`<p>${startTime}</p>`);
         app.timer();
 
