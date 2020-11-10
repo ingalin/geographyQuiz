@@ -18,168 +18,138 @@
 const app = {};
 let incorrectAnswer = 0;
 let interval;
-let k = 5;
-let questionCount = 0;
-let timer;
+let timeCount = 5;
+let questionLevelCount = 0;
+let levels = 1;
+const maxQuestionsPerLevel = 5;
+const startTime = 5;
+
+//Function to change order
+app.randomOrder = function (itemToOrder) {
+    for (let i = 0; i < itemToOrder.length; i++) {
+        let randomOrderNum = Math.floor(Math.random() * itemToOrder.length);
+        $(itemToOrder[i]).before(itemToOrder[randomOrderNum]);
+    }
+}
+
+//Function for incorrect answers
+app.incorect = function () {
+    incorrectAnswer++;
+    $(".mistakes").html(`<p>${incorrectAnswer}</p>`);
+    // If certain number of questions reached, go to the next level
+    app.nextLevel();
+}
+
+// If certain number of questions reached, go to the next level
+app.nextLevel = function () {
+    if (questionLevelCount == maxQuestionsPerLevel) {
+        $(".show").first().remove();
+        clearInterval(interval);
+        levels++;
+        $(".levels").append(`<h2 class="start2">Congratulations! Level ${levels} completed!</h2><button class="start2" type="submit">Next Level</button>`);
+    };
+};
+
+//Function after time is used
+app.timeout = function () {
+    timeCount--;
+    // If certain amount of time passed, go to the next question, reduce points for an incorrect answer
+    if (timeCount < 0) {
+        timeCount = 5;
+        incorrectAnswer++;
+        questionLevelCount++;
+        // If certain number of questions reached, go to the next level
+        app.nextLevel();
+        $(".show").next(".hide").addClass("show");
+        $(".show").first().remove();
+        $(".mistakes").html(`<p>${incorrectAnswer}</p>`);
+    };
+    //Show timer on screen
+    $(".timer").html(`<p>${timeCount}</p>`);
+};
+
+//Timer function
+app.timer = function () {
+    interval = setInterval(function () {
+        app.timeout();
+    }, 800);
+// }, 1000);
+};
 
 //Start
 app.init = function () {
 
 // Pievienot skaidrojumu, kaa speeleet!!!!!!!
+//paarsaukt global variables uz app.
 
 
     //Press start button
     $(".start").on('click', function(event){
         // Prevent Default 
         event.preventDefault();
-        ///////////////////////////////////////////
         // Timer
-        timer = function() {
-            interval = setInterval(function() {
-                k--;
-                if (k < 0) {
-                    k = 5;
-                    incorrectAnswer++;
-                    questionCount++;
-         ///////////////////////////
-            if (questionCount == 3) {
-            clearInterval(interval);
-            $(".show").first().remove();
-            $(".levels").append(`<h2 class="start2">Level 2</h2><button class="start2" type="submit">Start Quizz</button>`);
-        }
-                    $(".show").next(".hide").addClass("show");
-                    $(".show").first().remove();
-                    $(".mistakes").html(`<p>${incorrectAnswer}</p>`);
-                };
-                $(".timer").html(`<p>${k}</p>`);
-            }, 800);
-            // }, 1000);
-        };
-        /////////////////////////////////
-
-        timer();
-
-    
-       
+        app.timer();
 
         // Order forms in a random order
         let formRandom = [];
-
         $(this).closest("header").next("main").find('form').each(function () {
             formRandom.push($(this));
         });
+        app.randomOrder(formRandom);
 
-        for (let i = 0; i < formRandom.length; i++) {
-            let randomOrderNum = Math.floor(Math.random() * formRandom.length);
-            $(formRandom[i]).before(formRandom[randomOrderNum]);
-        }
-
-
-        //////////////////////////////////////////////////////////////////////////
         //Hide Header, show the first question, make the answers random
-
         let inputLabelDiv = [];
-
-        $(this).closest("header").addClass("hide").next("main").removeClass("hide").find(".hide").first().addClass("show").find("fieldset").find('div').each(function () {
+        $(this).closest("header").addClass("hide").next("main").removeClass("hide").find(".hide").first().addClass("show").find('div').each(function () {
             inputLabelDiv.push($(this));
         });
-
-        for (let i = 0; i < inputLabelDiv.length; i++) {
-            let randomOrderNum = Math.floor(Math.random() * inputLabelDiv.length);
-            $(inputLabelDiv[i]).before(inputLabelDiv[randomOrderNum]);
-        }
-
-
-
-
-
-
-
-        ///////////////////////////////////////////////////////////////////////
-
-        ///////////////////////////////////////////
-        // If answer is selected, show Submit button
-        $("input:radio").on('click', function (event) {
-            $(this).closest("div").closest("form").find("button").addClass("showSubmit");
-        })
-
-
-        
-
-
-
+        app.randomOrder(inputLabelDiv);
     });
 
 
-    //////////////////
-    $("main").on('click', ".start2", function (event) {
-        event.preventDefault();
 
-        console.log("st2");
-        // timer();
+    // If answer is selected, show Submit button
+    $("main").on('click', "input:radio", function (event) {
+        $(this).closest("div").closest("form").find("button").addClass("showSubmit");
+    });
+
+
+    //Start2 button which appears after a level is reached
+    $("main").on('click', ".start2", function (event) {
+        // Prevent Default 
+        event.preventDefault();
+        //Trigger first start button to do all the same functions from the start
         $(".start").trigger('click');
         $(this).closest("div").empty();
-        questionCount = 0;
+        questionLevelCount = 0;
     });
 
 
-    //Press submit button
+    //Press submit button to enter an answer
     $("main").on('click', ".submit", function (event) {
         // Prevent default
         event.preventDefault();
-        questionCount++;
-
-        ///////////////////////////////////////////
-        // Set timer
+        questionLevelCount++;
+        // Restart timer
         clearInterval(interval);
         k = 5;
-        $(".timer").html(`<p>5</p>`);
-        timer();
+        $(".timer").html(`<p>${startTime}</p>`);
+        app.timer();
 
-
-
-        //////////////////////////////////////////////
         // Make answers random
         let inputLabelDiv = [];
         $(this).closest("fieldset").closest("form").next("form").find("fieldset").find('div').each(function () {
             inputLabelDiv.push($(this));
         });
-        for (let i = 0; i < inputLabelDiv.length; i++) {
-            let randomOrderNum = Math.floor(Math.random() * inputLabelDiv.length);
-            $(inputLabelDiv[i]).before(inputLabelDiv[randomOrderNum]);
-        }
-
+        app.randomOrder(inputLabelDiv);
 
         //Add points if the answer is correct
         if ($(this).closest("fieldset").find("input:radio[class='check']:checked").val() == "correct") {
-
-
-            if (questionCount == 3) {
-                $(".show").first().remove();
-                clearInterval(interval);
-                console.log("ri" + questionCount);
-
-                $(".levels").append(`<h2 class="start2">Level 2</h2><button class="start2" type="submit">Start Quizz</button>`);
-                // return false;
-            }
-
+            // If certain number of questions reached, go to the next level
+            app.nextLevel();
         }
         else {
-            // console.log("not the right answer")
-            function incorect() {
-                incorrectAnswer = incorrectAnswer + 1;
-                $(".mistakes").html(`<p>${incorrectAnswer}</p>`);
-
-                if (questionCount == 3) {
-                    $(".show").first().remove();
-                    clearInterval(interval);
-                    $(".levels").append(`<h2 class="start2">Level 2</h2><button class="start2" type="submit">Start Quizz</button>`);
-                    // return false;
-                }
-
-
-            }
-            incorect();
+            //Count incorrect answers, go to the next level
+            app.incorect();
         }
         //Show the next question
         $(this).closest("form").removeClass("show").next("form").first(".hide").addClass("show");
@@ -189,8 +159,6 @@ app.init = function () {
     });
 
 
-
-
     
 };
 
@@ -198,9 +166,3 @@ app.init = function () {
 
 //Document Ready
 $(() => app.init());
-
-
-
-
-
-
