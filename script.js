@@ -99,7 +99,7 @@ app.timeout = function () {
 app.timer = function () {
     interval = setInterval(function () {
         app.timeout();
-    }, 10000);
+    }, 1000);
 // }, 1000);
 };
 
