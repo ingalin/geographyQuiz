@@ -1,6 +1,10 @@
 // $darkGreyBlue: #285e64;
-$headerColor: #ffffff;
-$background: rgba(0, 0, 0, 0.4);
+$headerColor: #fdfefa;
+$darkText: #643293;
+$lighterText: #4fcadb;
+$darkBackground: #f390bc;
+$lightBackground: #d3b5d5;
+$background: rgba(100, 50, 147, 0.65);
 
 @mixin fontSquare(){
     font-family: 'Nova Square', cursive;
@@ -21,8 +25,8 @@ html {
 
 body {
     @include fontSquare();
-    font-size: 2rem;
-    // color: #186684;
+    color: $darkText;
+    font-size: 2.8rem;
     line-height: 2.9rem;
 }
 
@@ -53,9 +57,9 @@ img {
 h1 {
     @include fontRokkit();
     color: $headerColor;
-    font-size: 9rem;
+    font-size: 10rem;
     letter-spacing: 0.5rem;
-    font-weight: 200;
+    font-weight: 600;
     line-height: 1.2;
     margin: 0;
 }

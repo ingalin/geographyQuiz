@@ -1,10 +1,9 @@
 // Main Styles
 
 main {
-    background: url(./assets/cool-background.png);
+    background: url(./assets/trianglify-lowres2.png);
     background-size: cover;
     background-repeat: no-repeat;
-    // min-height: 600px;
     height: 100vh;
     background-position: center center;
     padding-bottom: 50px;
@@ -12,11 +11,16 @@ main {
 
 form div {
     min-height: 100px;
-    // background-color: white;
-    background: url(./assets/pinkBackground.jpg);
+    background: url(./assets/trianglify-lowreslight.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     margin: 20px 0;
     display: flex;
     align-items: center;
+    border-radius: 25px;
+    border: 7px solid #643293;
+    width: 80%;
+    padding: 30px;
 }
 
 
@@ -41,72 +45,36 @@ form div {
 //     transform: scale(2); 
 // }
 
+///////////////////////////
 
-
-
-
-
-/////////////////////
-
-label {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+legend {
+    font-size: 3.5rem;
 }
 
-/* Hide the browser's default radio button */
-label input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
+input[type="radio"] {
+    display: none;
 }
 
-/* Create a custom radio button */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-  border-radius: 50%;
+span {
+    display: block;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    cursor: pointer;
+    background: $headerColor;
+    border: 3px solid $darkText;
+    border-radius: 100%;
 }
 
-/* On mouse-over, add a grey background color */
-label:hover input ~ .checkmark {
-  background-color: #ccc;
+span:hover {
+    border-color: $lighterText;
+    background-color: $darkBackground;
 }
 
-/* When the radio button is checked, add a blue background */
-label input:checked ~ label {
-  background-color: #2196F3;
+span {
+    background: $darkText;
 }
 
-/* Create the indicator (the dot/circle - hidden when not checked) */
-label:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
 
-/* Show the indicator (dot/circle) when checked */
-label input:checked ~ .checkmark:after {
-  display: block;
-}
 
-/* Style the indicator (dot/circle) */
-label .checkmark:after {
- 	top: 9px;
-	left: 9px;
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: white;
-}
+
