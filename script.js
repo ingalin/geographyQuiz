@@ -56,8 +56,14 @@ app.nextLevel = function () {
     if (questionLevelCount == maxQuestionsPerLevel) {
         $(".show").first().remove();
         clearInterval(interval);
-        timeCount = timeCount - 2;
-        startTime = startTime - 2;
+        if (timeCount <= 4) {
+            timeCount = 4;
+            startTime = 4;
+        }
+        else {
+            timeCount = timeCount - 2;
+            startTime = startTime - 2;
+        }
         levels++;
         $(".levels").append(`<h2 class="start2">Congratulations! Level ${levels} completed!</h2><p>You have ${timeCount} seconds to answer next questions</p><button class="start2" type="submit">Next Level</button>`);
         if (incorrectAnswer > 0) {
@@ -93,7 +99,7 @@ app.timeout = function () {
 app.timer = function () {
     interval = setInterval(function () {
         app.timeout();
-    }, 1000);
+    }, 10000);
 // }, 1000);
 };
 
@@ -102,6 +108,10 @@ app.init = function () {
 
 // Pievienot skaidrojumu, kaa speeleet!!!!!!!
 //paarsaukt global variables uz app. 
+    // https://www.momjunction.com/articles/geography-quiz-questions_00472564/
+    // https://www.brightful.me/blog/geography-trivia-questions/
+    // https://www.edsys.in/geography-quiz-for-kids-107-questions-answers/#1
+    // https://www.funtrivia.com/en/ForChildren/Canadian-Geography-for-Kids-18561_3.html
 
 
     //Press start button

@@ -1,5 +1,5 @@
 // $darkGreyBlue: #285e64;
-$white: #ffffff;
+$headerColor: #ffffff;
 $background: rgba(0, 0, 0, 0.4);
 
 @mixin fontSquare(){
@@ -52,7 +52,7 @@ img {
 
 h1 {
     @include fontRokkit();
-    color: $white;
+    color: $headerColor;
     font-size: 9rem;
     letter-spacing: 0.5rem;
     font-weight: 200;
@@ -61,7 +61,7 @@ h1 {
 }
 
 h2 {
-    color: $white;
+    color: $headerColor;
 }
 
 // Hide or Show
