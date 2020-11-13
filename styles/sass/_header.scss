@@ -17,16 +17,16 @@ header {
 
 .headerText {
     text-align: center;
-    background-color: $background;
+    background-color: $backgroundTransp;
     padding: 30px 30px 60px;
     border-radius: 20px;
 }
 
 .shadow {
     box-shadow: 
-        0 0 70px 2rem $darkBackground,
-        0 0 80px 4rem $lighterText,
-        0 0 100px 5rem $darkText;
+        0 0 70px 2rem $shadowsBorders,
+        0 0 80px 4rem $borders,
+        0 0 100px 5rem $mainText;
     margin: 100px;
     margin-top: 150px;
     padding: 30px;

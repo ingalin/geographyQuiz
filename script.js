@@ -23,7 +23,8 @@ let incorrectAnswer = 0;
 let questionLevelCount = 0;
 let levels = 0;
 const maxQuestionsPerLevel = 5;
-const gameOver = 3;
+const gameOver = 8;
+let t = 0;
 
 
 // Game over after incorrect answers
@@ -79,9 +80,19 @@ app.nextLevel = function () {
 //Function after time is used
 app.timeout = function () {
     timeCount--;
+
     // If certain amount of time passed, go to the next question, reduce points for an incorrect answer
     if (timeCount < 0) {
         timeCount = startTime;
+        $(".progress").empty();
+
+        ////////
+        for (let i = 0; i <= timeCount; i++) {
+            $(".progress").append(`<i class="fas fa-2x fa-globe-americas count${i}"></i>`);
+        }
+
+        ////////
+
         // Count incorrect answers
         app.countIncorrectAnswers();
         questionLevelCount++;
@@ -90,6 +101,7 @@ app.timeout = function () {
         $(".show").next(".hide").addClass("show");
         $(".show").first().remove();
         $(".mistakes").html(`<p>${incorrectAnswer}</p>`);
+        t=0;
     };
     //Show timer on screen
     $(".timer").html(`<p>${timeCount}</p>`);
@@ -97,9 +109,23 @@ app.timeout = function () {
 
 //Timer function
 app.timer = function () {
+
     interval = setInterval(function () {
         app.timeout();
-    }, 10000);
+        ///////
+
+        $(`.count${timeCount}`).remove();
+        $(".progress").append(`<i class="far fa-2x fa-circle countCircle${t}"></i>`);
+        t++;
+        $(".countCircle0").remove();
+        // $(".countCircle1").remove();
+        // // if (timeCount == startTime-1){
+        // if (timeCount == startTime - 1) {
+        //     $(".progress").append(`<i class="far fa-2x fa-circle countCircle"></i>`);
+        // }
+
+    ///////
+    }, 1000);
 // }, 1000);
 };
 
@@ -120,9 +146,35 @@ app.init = function () {
         event.preventDefault();
         $(".levels").empty();
 
+        ////////
+        for (let i = 0; i < timeCount; i++) {
+            $(".progress").append(`<i class="fas fa-2x fa-globe-americas count${i}"></i>`);
+        }
+
+        app.timerForCircle = function () {
+
+            interval2 = setTimeout(function () {
+                ///////
+
+  
+                // $(".countCircle1").remove();
+                // // if (timeCount == startTime-1){
+                // if (timeCount == startTime - 1) {
+                    $(".progress").append(`<i class="far fa-2x fa-circle countCircle"></i>`);
+                // }
+
+                ///////
+            }, 1000);
+        }
+
+        app.timerForCircle();
+
+        ////////
         // Timer
         app.timer();
         $(".timer").html(`<p>${timeCount}</p>`);
+
+        // clearInterval(interval2);
 
         // Order forms in a random order
         let formRandom = [];

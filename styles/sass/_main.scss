@@ -1,55 +1,38 @@
 // Main Styles
-
 main {
     background: url(./assets/jake-weirick-Q_RBVFFXR_g-unsplash_small.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
-    background-position: center center;
 }
 
 .formsDiv {
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: 50px;
 }
-
-form div {
-    background-color: $headerColor;
-    margin: 15px 0;
-    display: flex;
-    align-items: center;
-    border-radius: 25px;
-    border: 7px solid $lighterText;
-    width: 100%;
-}
-
-
 
 //Radio buttons and text
 
-legend {
-    font-size: 3.5rem;
-    color: $headerColor;
-    font-weight: 800;
-}
-
-input[type="radio"] {
-    opacity: 0;
-    position: absolute;
+form div {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 
 form {
-    width: 60%;
-    margin-top: 60px;
-    background-color: $darkText;
-    padding: 30px 40px;
+    width: 65%;
+    // margin-top: 50px;
+    background-color: $mainText;
+    padding: 30px 40px 20px;
     border-radius: 20px;
-    // border: 5px solid $lightBackground;
     box-shadow: 
-        0 0 30px 1rem $darkBackground,
-        0 0 50px 2rem $lighterText,
-        0 0 70px 3rem $darkText;
+        0 0 30px 1rem $shadowsBorders,
+        0 0 50px 2rem $borders,
+        0 0 70px 3rem $mainText;
+    min-height: 600px;
 }
 
 fieldset {
@@ -60,14 +43,30 @@ fieldset {
     padding: 0;
 }
 
+legend {
+    font-size: 3.3rem;
+    color: $headingColor;
+    font-weight: 800;
+    min-height: 110px;
+}
+
 label {
-    padding: 23px 80px;
+    padding: 20px 5px 20px 65px;
     cursor: pointer;
     width: 100%;
     position: relative;
+    background-color: $headingColor;
+    border-radius: 25px;
+    border: 7px solid $borders;
 }
 
-/* Make the toggle background */
+// Hide the simple toggle
+input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+}
+
+// Make the toggle background
 label::before {
     content: "";
     width: 40px;
@@ -75,44 +74,73 @@ label::before {
     border-radius: 50%;
     position: absolute;
     left: 15px;
-    top: 23px;
-    background: $lighterText;
+    top: 18px;
+    background: $borders;
 }
 
-/* Make the middle of the toggle switch */
+// Make the middle of the toggle
 label::after {
     content: "";
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: $headerColor;
+    background: $headingColor;
     position: absolute;
     left: 25px;
-    top: 33px;
+    top: 28px;
 }
 
-/* Change the background color when the toggle is checked */
-input[type="radio"]:checked + label::before {
-    background: $darkBackground;
+// Hover, focus
+
+input[type="radio"]:hover + label::before, input[type="radio"]:focus + label::before {
+    background: $mainText;
 }
-/* Change the position of middle of toggle switch */
+
+label:hover, label:focus {
+    background-color: $borders;
+    border: 7px solid $shadowsBorders;
+}
+
+// Toggle styles after it's checked
 input[type="radio"]:checked + label::after {
-    background: $darkBackground;
+    background: $shadowsBorders;
     width: 25px;
     height: 25px;
     left: 22.5px;
-    top: 30.5px;
+    top: 25.8px;
 }
 
-/* Changes the background color of the toggle switch when focused (for accessibility) */
-input[type="radio"]:hover + label::before, input[type="radio"]:focus + label::before {
-    background: $darkText;
+input[type="radio"]:checked + label::before {
+    background-color: $borders;
 }
 
-form div:hover {
-    background-color: $lighterText;
-    border: 7px solid $darkBackground;
+input[type="radio"]:checked + label {
+    background-color: $mainText;
+    color: $headingColor;
 }
+
+//Progress bar
+
+.time, .mistakes {
+    width: 17%;
+}
+.time {
+    order: -1;
+}
+
+.progress i {
+    display: block;
+    box-shadow: 1px white solid;
+}
+
+.progress {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
 
 
 
