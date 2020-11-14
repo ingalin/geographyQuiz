@@ -41,7 +41,7 @@ button {
     color: rgb(95, 21, 34);
     padding: 10px 30px;
     text-decoration: none;
-    margin: 20px;
+    margin: 20px 0 0;
 }
 
 button:hover, button:focus {
@@ -68,6 +68,18 @@ h1 {
 h2 {
     color: $headingColor;
     font-size: 3.5rem;
+}
+
+h4 {
+    @include fontRokkit();
+    font-size: 2.2rem;
+    color: $headingColor;
+}
+
+h5 {
+    font-size: 5rem;
+    color: $headingColor;
+    @include fontRokkit();
 }
 
 // Hide or Show

@@ -21,12 +21,10 @@ let timeCount = 12;
 let startTime = 12;
 let incorrectAnswer = 0;
 let questionLevelCount = 0;
-let questionCount = 0;
 let levels = 0;
-const maxQuestionsPerLevel = 6;
+const maxQuestionsPerLevel = 2;
 const gameOver = 3;
 let countIcons = 0;
-let winner = 30;
 
 // Game over after incorrect answers
 app.countIncorrectAnswers = function () {
@@ -81,13 +79,10 @@ app.timeReductionLimit = function () {
 
 // If certain number of questions reached, go to the next level
 app.nextLevel = function () {
-    if (questionCount == winner){
-        $("main").html("Winner!!!");
-    }
     if (questionLevelCount == maxQuestionsPerLevel) {
         $(".show").first().remove();
         clearInterval(interval);
-        // $(".time").addClass("levelsTime");
+        $(".time").addClass("levelsTime");
         // Set the limit by how much time can be reduced
         app.timeReductionLimit();
         levels++;
@@ -104,13 +99,7 @@ app.nextLevel = function () {
         else {
             $(".mistakes").html(`<h4>Stars left: ${gameOver - incorrectAnswer}/${gameOver}</h4>`);
         }
-        // Style the page
         $(".timer h4").remove();
-        $(".time").addClass("levelsTime");
-        $("main").addClass("levelsStyles");
-        $(".formsDiv").addClass("levelsStyleForms");
-        $(".mistakeCount").addClass("levelsMistakes");
-        $(".stars").addClass("levelsStars");
     };
 };
 
@@ -119,8 +108,6 @@ app.timeout = function () {
     timeCount--;
     // If certain amount of time passed, go to the next question, reduce points for an incorrect answer
     if (timeCount < 0) {
-        questionCount++;
-        console.log(questionCount);
         timeCount = startTime;
         // Empty icons for the next question // add new icons
         app.addFirstIcons();
@@ -175,9 +162,6 @@ app.submitButton = function () {
         // Prevent default
         event.preventDefault();
         questionLevelCount++;
-        questionCount++;
-        console.log(questionCount);
-
         // Restart timer
         clearInterval(interval);
         timeCount = startTime;
@@ -215,14 +199,7 @@ app.nextLevelButton = function () {
         $(".start").trigger('click');
         $(this).closest("div").empty();
         questionLevelCount = 0;
-        // $(".time").removeClass("hide");
-        // Reset styles
-        $(".time").removeClass("levelsTime");
-        $("main").removeClass("levelsStyles");
-        $(".formsDiv").removeClass("levelsStyleForms");
-        $(".mistakeCount").removeClass("levelsMistakes");
-        $(".stars").removeClass("levelsStars");
-        $(".levels").empty();
+        $(".time").removeClass("hide");
     });
 }
 
@@ -237,9 +214,9 @@ app.startButton = function(){
     $(".start").on('click', function (event) {
         // Prevent Default 
         event.preventDefault();
-        // Update field information
-        // $(".levels").empty();
-        $(".timer").removeClass("hide");
+        // Empty unnecessary fields//update field information
+        $(".levels").empty();
+        $(".timer").removeClass("hide")
         $(".mistakes").html(`<h4>Stars left: ${gameOver - incorrectAnswer}/${gameOver}</h4>`);
         // Add first icons
         app.addFirstIcons();
@@ -270,7 +247,6 @@ app.init = function () {
     // https://www.brightful.me/blog/geography-trivia-questions/
     // https://www.edsys.in/geography-quiz-for-kids-107-questions-answers/#1
     // https://www.funtrivia.com/en/ForChildren/Canadian-Geography-for-Kids-18561_3.html
-//Pievienot pie Game Over un Winner - play again, restart page
 
     //Press start button
     app.startButton();
