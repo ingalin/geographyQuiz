@@ -23,17 +23,17 @@ let incorrectAnswer = 0;
 let questionLevelCount = 0;
 let questionCount = 0;
 let levels = 0;
-const maxQuestionsPerLevel = 6;
+const maxQuestionsPerLevel = 1;
 const gameOver = 3;
+const winner = 30;
 let countIcons = 0;
-let winner = 30;
 
 // Game over after incorrect answers
 app.countIncorrectAnswers = function () {
     incorrectAnswer++;
     if (incorrectAnswer == gameOver) {
         clearInterval(interval);
-        $("main").html(`<h3>Game Over</h3>`);
+        $("main").html(`<h3>Game Over</h3><img src="styles/assets/hiclipartcom.png" alt="image of sad earth">`).addClass("levelsStyles");
     };
 }
 
@@ -92,7 +92,7 @@ app.nextLevel = function () {
         app.timeReductionLimit();
         levels++;
         // Append information about levels, mistakes, remove unnecessary information
-        $(".levels").append(`<h5 class="start2">Congratulations! Level ${levels} completed!</h5><p>You have ${timeCount} seconds to answer next questions</p><button class="start2" type="submit">Next Level</button>`);
+        $(".levels").append(`<h5 class="start2">Congratulations! Level ${levels} completed!</h5><p>You have ${timeCount} seconds to answer next questions</p><button class="start2" type="submit">Next Level</button><img class="doubleImg1" src="styles/assets/hiclipart2com(1).png" alt="image of the "><img class="doubleImg" src="styles/assets/hiclipart2com(1).png" alt="image of the earth">`);
         $(".progress").empty();
         if (incorrectAnswer > 0) {
             incorrectAnswer--;

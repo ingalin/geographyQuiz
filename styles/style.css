@@ -289,6 +289,12 @@ h2 {
   font-size: 3.5rem;
 }
 
+h3 {
+  font-size: 10rem;
+  color: #f390bc;
+  text-transform: uppercase;
+}
+
 h4 {
   font-family: 'Rokkitt', serif;
   font-size: 2.2rem;
@@ -569,6 +575,21 @@ input[type="radio"]:checked + label {
   display: none;
 }
 
+.levels img {
+  width: 30%;
+  position: absolute;
+}
+
+.doubleImg1 {
+  bottom: 0;
+  left: 0;
+}
+
+.doubleImg {
+  right: 0;
+  bottom: 0;
+}
+
 header {
   background: url(./assets/jeremy-perkins-FsK54FVNRfM-unsplash_small.jpg);
   background-size: cover;
@@ -605,8 +626,7 @@ header {
 .shadow {
   -webkit-box-shadow: 0 0 70px 2rem #f390bc, 0 0 80px 4rem #4fcadb, 0 0 100px 5rem #643293;
           box-shadow: 0 0 70px 2rem #f390bc, 0 0 80px 4rem #4fcadb, 0 0 100px 5rem #643293;
-  margin: 100px;
-  margin-top: 150px;
+  margin: 150px 100px 100px;
   padding: 30px;
   border-radius: 20px;
 }
@@ -628,4 +648,71 @@ header img {
 
 .start {
   margin-bottom: 10px;
+}
+
+@media (max-width: 1110px) {
+  h1 {
+    font-size: 8rem;
+  }
+  h2 {
+    font-size: 2.8rem;
+  }
+  .headerText {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 770px) {
+  h1 {
+    font-size: 6.5rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h2 span {
+    display: block;
+  }
+  .shadow {
+    margin: 0;
+  }
+  .headerStyles {
+    min-height: 550px;
+  }
+}
+
+@media (max-width: 690px) {
+  h1 {
+    font-size: 6.5rem;
+  }
+}
+
+@media (max-width: 580px) {
+  h1 {
+    font-size: 5.4rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  .shadow {
+    padding: 10px;
+    margin: 0;
+  }
+  .headerText {
+    padding: 10px;
+  }
+  header img {
+    width: 70%;
+  }
+}
+
+@media (max-width: 420px) {
+  h1 {
+    font-size: 4.5rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  header img {
+    width: 100%;
+  }
 }

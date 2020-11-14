@@ -1,0 +1,80 @@
+// Media queries
+@media (max-width: 1110px) {
+    h1 {
+        font-size: 8rem;
+    }
+
+    h2 {
+        font-size: 2.8rem;
+    }
+
+    .headerText {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 770px) {
+    h1 {
+        font-size: 6.5rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    h2 span {
+        display: block;
+    }
+
+    .shadow {
+        margin: 0;
+    }
+
+    .headerStyles {
+        min-height: 550px;
+    }
+}
+
+@media (max-width: 690px) {
+    h1 {
+        font-size: 6.5rem;
+    }
+}
+
+@media (max-width: 580px) {
+    h1 {
+        font-size: 5.4rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+
+    .shadow {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .headerText {
+        padding: 10px;
+    }
+
+    header img {
+        width: 70%;
+    }
+}
+
+
+@media (max-width: 420px) {
+    h1 {
+        font-size: 4.5rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    header img {
+        width: 100%;
+    }
+}
