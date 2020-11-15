@@ -104,7 +104,7 @@
     // Main
     form {
         width: 100%;
-        min-height: 500px;
+        // min-height: 500px;
     }
 
     .submit {
@@ -124,6 +124,11 @@
 
     label {
         padding: 10px 5px 10px 65px;
+        border: 3px solid $borders;
+    }
+
+    label:hover, label:focus {
+        border: 3px solid $shadowsBorders;
     }
 
     label::before {
@@ -202,12 +207,32 @@
     }
 
     // Main 
+    main {
+        min-height: 500px;
+    }
+
     legend {
         min-height: 100px;
     }
 
     label {
         font-size: 2rem;
+    }
+
+    label::before {
+        top: 8px;
+    }
+
+    label::after {
+        top: 18px;
+    }
+        
+    input[type="radio"]:checked + label::after {
+        top: 16px;
+    }
+
+    .submit {
+        padding: 10px 60px;
     }
 
     // Levels
@@ -239,11 +264,19 @@
     .winnerPage img {
         width: 60%;
     }
+
+    // Game Over 
+    .gameOver {
+        font-size: 7rem;
+    }
 }
 
 
 @media (max-width: 420px) {
     // Header
+    header {
+        min-height: 550px;
+    }
     h1 {
         font-size: 4.5rem;
     }
@@ -258,7 +291,7 @@
 
     // Main
     label {
-        min-height: 85px;
+        // min-height: 77px;
     }
 
     form div {
@@ -284,6 +317,12 @@
 
     .levels img {
         width: 45%;
+    }
+
+    
+    // Game Over 
+    .gameOver {
+        font-size: 6rem;
     }
 
 }

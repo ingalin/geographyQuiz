@@ -36,7 +36,7 @@ form {
         0 0 30px 1rem $shadowsBorders,
         0 0 50px 2rem $borders,
         0 0 70px 3rem $mainText;
-    min-height: 600px;
+    // min-height: 600px;
 }
 
 fieldset {
@@ -191,7 +191,6 @@ input[type="radio"]:checked + label {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    // min-height: 600px;
     position: relative;
 }
 
@@ -267,6 +266,12 @@ input[type="radio"]:checked + label {
 
 .winnerPage img {
     width: 40%;
+}
+
+// Game Over
+
+.gameOver {
+    text-align: center;
 }
 
 

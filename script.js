@@ -23,9 +23,9 @@ let incorrectAnswer = 0;
 let questionLevelCount = 0;
 let questionCount = 0;
 let levels = 0;
-const maxQuestionsPerLevel = 2;
-const gameOver = 20;
-const winner = 4;
+const maxQuestionsPerLevel = 10;
+const gameOver = 60;
+const winner = 60;
 let countIcons = 0;
 
 // Game over after incorrect answers
@@ -33,7 +33,7 @@ app.countIncorrectAnswers = function () {
     incorrectAnswer++;
     if (incorrectAnswer == gameOver) {
         clearInterval(interval);
-        $("main").html(`<h3>Game Over</h3><img src="styles/assets/hiclipartcom.png" alt="image of sad earth">`).addClass("levelsStyles");
+        $("main").html(`<h3 class="gameOver">Game Over</h3><img src="styles/assets/hiclipartcom.png" alt="image of sad earth">`).addClass("levelsStyles");
     };
 }
 
@@ -159,7 +159,7 @@ app.timer = function () {
         $(".progress").append(`<i class="far fa-circle countCircle${countIcons}"></i>`);
         countIcons++;
         $(".countCircle0").remove();
-    }, 1000);
+    }, 150);
     // }, 1000);
 };
 

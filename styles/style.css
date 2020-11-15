@@ -462,7 +462,6 @@ form {
   border-radius: 20px;
   -webkit-box-shadow: 0 0 30px 1rem #f390bc, 0 0 50px 2rem #4fcadb, 0 0 70px 3rem #643293;
           box-shadow: 0 0 30px 1rem #f390bc, 0 0 50px 2rem #4fcadb, 0 0 70px 3rem #643293;
-  min-height: 600px;
 }
 
 fieldset {
@@ -759,6 +758,10 @@ input[type="radio"]:checked + label {
   width: 40%;
 }
 
+.gameOver {
+  text-align: center;
+}
+
 header {
   background: url(./assets/jeremy-perkins-FsK54FVNRfM-unsplash_small.jpg);
   background-size: cover;
@@ -910,7 +913,6 @@ header img {
   }
   form {
     width: 100%;
-    min-height: 500px;
   }
   .submit {
     padding: 15px 60px;
@@ -930,6 +932,10 @@ header img {
   }
   label {
     padding: 10px 5px 10px 65px;
+    border: 3px solid #4fcadb;
+  }
+  label:hover, label:focus {
+    border: 3px solid #f390bc;
   }
   label::before {
     width: 30px;
@@ -999,11 +1005,26 @@ header img {
   .startButtonDiv {
     margin-top: 30px;
   }
+  main {
+    min-height: 500px;
+  }
   legend {
     min-height: 100px;
   }
   label {
     font-size: 2rem;
+  }
+  label::before {
+    top: 8px;
+  }
+  label::after {
+    top: 18px;
+  }
+  input[type="radio"]:checked + label::after {
+    top: 16px;
+  }
+  .submit {
+    padding: 10px 60px;
   }
   h5 {
     font-size: 3.8rem;
@@ -1026,9 +1047,15 @@ header img {
   .winnerPage img {
     width: 60%;
   }
+  .gameOver {
+    font-size: 7rem;
+  }
 }
 
 @media (max-width: 420px) {
+  header {
+    min-height: 550px;
+  }
   h1 {
     font-size: 4.5rem;
   }
@@ -1037,9 +1064,6 @@ header img {
   }
   header img {
     width: 100%;
-  }
-  label {
-    min-height: 85px;
   }
   form div {
     margin: 5px 0;
@@ -1058,5 +1082,8 @@ header img {
   }
   .levels img {
     width: 45%;
+  }
+  .gameOver {
+    font-size: 6rem;
   }
 }
