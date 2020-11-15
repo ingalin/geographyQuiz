@@ -208,7 +208,7 @@
 
     // Main 
     main {
-        min-height: 500px;
+        min-height: 600px;
     }
 
     legend {
@@ -250,6 +250,10 @@
 
     .levels img {
         width: 40%;
+    }
+
+    form div {
+        margin: 5px 0;
     }
 
     h6 {
