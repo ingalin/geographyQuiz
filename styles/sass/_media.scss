@@ -88,6 +88,11 @@
     input[type="radio"]:checked + label::after {
         top: 22px;
     }
+
+    // Winner page
+    .addAnimationWinner {
+        width: 100%;
+    }
 }
 
 @media (max-width: 690px) {
@@ -224,6 +229,15 @@
 
     h6 {
         font-size: 2.5rem;
+    }
+
+    // Winner 
+    .addAnimationWinner {
+        font-size: 6.9rem;
+    }
+
+    .winnerPage img {
+        width: 60%;
     }
 }
 

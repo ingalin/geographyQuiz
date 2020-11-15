@@ -243,6 +243,32 @@ input[type="radio"]:checked + label {
     bottom: 0;
 }
 
+// Winner page
+.winnerPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.addAnimationWinner {
+    background-color: $mainText;
+    padding: 30px 100px;
+    border-radius: 20px;
+    animation: glowing2 2600ms infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px solid $shadowsBorders;
+    margin: 100px 0 70px;
+    width: 70%;
+}
+
+.winnerPage img {
+    width: 40%;
+}
+
 
 
 
