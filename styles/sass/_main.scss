@@ -6,13 +6,15 @@ main {
     height: 100vh;
     min-height: 680px;
     padding-bottom: 30px;
+    display: flex;
+    align-items: center;
 }
 
 .formsDiv {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    padding-top: 50px;
+    margin-top: 20px;
 }
 
 //Radio buttons and text
@@ -28,7 +30,7 @@ form {
     width: 60%;
     // margin-top: 50px;
     background-color: $mainText;
-    padding: 30px 40px 50px;
+    padding: 30px 40px 30px;
     border-radius: 20px;
     box-shadow: 
         0 0 30px 1rem $shadowsBorders,
@@ -49,7 +51,7 @@ legend {
     font-size: 3.2rem;
     color: $headingColor;
     font-weight: 800;
-    min-height: 100px;
+    min-height: 130px;
 }
 
 label {
@@ -93,7 +95,6 @@ label::after {
 }
 
 // Hover, focus
-
 input[type="radio"]:hover + label::before, input[type="radio"]:focus + label::before {
     background: $mainText;
 }
@@ -121,8 +122,12 @@ input[type="radio"]:checked + label {
     color: $headingColor;
 }
 
-//Progress bar
+.submit {
+    margin-top: 20px;
+    padding: 20px 60px;
+}
 
+//Progress bar
 .time, .mistakeCount {
     width: calc(17% - 60px);
 }
@@ -149,12 +154,15 @@ input[type="radio"]:checked + label {
 .progress, .stars, .time {
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
     align-items: center;
 }
 
 .timer, .stars {
     width: 100%;
+}
+
+.mistakes, .timer {
+    text-align: center;
 }
 
 //Levels page styles
@@ -163,11 +171,19 @@ input[type="radio"]:checked + label {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: $backgroundTransp;
+    border-radius: 20px;
+    padding: 30px 10px;
+}
+
+.levelMessage {
+    display: block;
 }
 
 .levels p {
     color: $borders;
     font-size: 2.5rem;
+    text-align: center;
 }
 
 .levelsStyles {
@@ -175,6 +191,8 @@ input[type="radio"]:checked + label {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    // min-height: 600px;
+    position: relative;
 }
 
 .levelsStyleForms {
@@ -198,13 +216,21 @@ input[type="radio"]:checked + label {
     justify-content: center;
 }
 
-.levelsTime {
+.levelsTime, .levelsMessage {
     display: none;
 }
 
 .levels img {
     width: 30%;
     position: absolute;
+}
+
+.mistakeCount.levelsMistakes {
+    width: 100%;
+}
+
+.levels button {
+    margin-top: 40px;
 }
 
 .doubleImg1 {

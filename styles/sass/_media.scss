@@ -1,5 +1,6 @@
 // Media queries
-@media (max-width: 1110px) {
+@media (max-width: 1150px) {
+    // Header
     h1 {
         font-size: 8rem;
     }
@@ -11,9 +12,29 @@
     .headerText {
         padding: 15px;
     }
+
+    // Main 
+    form {
+        width: 65%;
+        padding: 20px 20px 40px;
+    }
+
+    legend {
+        font-size: 2.8rem;
+        min-height: 120px;
+    }
+
+    label {
+        font-size: 2.4rem;
+    }
+
+    .progress i, .stars i {
+        font-size: 4rem;
+    }
 }
 
 @media (max-width: 770px) {
+    // Header
     h1 {
         font-size: 6.5rem;
     }
@@ -26,24 +47,131 @@
         display: block;
     }
 
-    .shadow {
-        margin: 0;
+    .start {
+        padding: 15px 20px;
     }
 
-    .headerStyles {
-        min-height: 550px;
+    .startButtonDiv {
+        justify-content: center;
+    }
+
+    .shadow {
+        margin: 100px 0 50px;
+    }
+
+    // Main 
+    form {
+        width: 70%;
+        padding: 10px 10px 30px;
+        box-shadow: 
+            0 0 10px 0.5rem $shadowsBorders,
+            0 0 30px 1rem $borders,
+            0 0 50px 2rem $mainText;
+    }
+
+    .time, .mistakeCount {
+        width: calc(15% - 25px);
+    }
+
+    legend {
+        font-size: 2.8rem;
+    }
+
+    label::before {
+        top: 14px;
+    }
+
+    label::after {
+        top: 24px;
+    }
+
+    input[type="radio"]:checked + label::after {
+        top: 22px;
     }
 }
 
 @media (max-width: 690px) {
+    // Header
     h1 {
-        font-size: 6.5rem;
+        font-size: 6rem;
+    }
+
+    // Main
+    form {
+        width: 100%;
+        min-height: 500px;
+    }
+
+    .submit {
+        padding: 15px 60px;
+        font-size: 2.8rem;
+    }
+
+    .mistakeCount {
+        width: 100%;
+        order: -2;
+    }
+
+    .stars {
+        justify-content: center;
+        margin-top: -10px;
+    }
+
+    label {
+        padding: 10px 5px 10px 65px;
+    }
+
+    label::before {
+        width: 30px;
+        height: 30px;
+        top: 10px;
+    }
+
+    label::after {
+        top: 20px;
+        width: 10px;
+        height: 10px;
+    }
+        
+    input[type="radio"]:checked + label::after {
+        top: 18px;
+        width: 15px;
+        height: 15px;
+    }
+
+    legend {
+        font-size: 2.2rem;
+        min-height: 80px;
+    }
+
+    .formsDiv {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .progress, .stars {
+        flex-direction: row;
+    }
+
+    .time {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .time i {
+        font-size: 3rem;
+    }
+
+    .stars i {
+        font-size: 4rem;
     }
 }
 
 @media (max-width: 580px) {
+    // Header 
     h1 {
-        font-size: 5.4rem;
+        font-size: 5rem;
     }
     
     h2 {
@@ -53,6 +181,7 @@
     .shadow {
         padding: 10px;
         margin: 0;
+        margin-top: 50px;
     }
 
     .headerText {
@@ -62,10 +191,45 @@
     header img {
         width: 70%;
     }
+
+    .startButtonDiv {
+        margin-top: 30px;
+    }
+
+    // Main 
+    legend {
+        min-height: 100px;
+    }
+
+    label {
+        font-size: 2rem;
+    }
+
+    // Levels
+    h5 {
+        font-size: 3.8rem;
+    }
+
+    .levels p {
+        font-size: 2rem;
+    }
+
+    .start2 {
+        font-size: 2.5rem;
+    }
+
+    .levels img {
+        width: 40%;
+    }
+
+    h6 {
+        font-size: 2.5rem;
+    }
 }
 
 
 @media (max-width: 420px) {
+    // Header
     h1 {
         font-size: 4.5rem;
     }
@@ -77,4 +241,35 @@
     header img {
         width: 100%;
     }
+
+    // Main
+    label {
+        min-height: 85px;
+    }
+
+    form div {
+        margin: 5px 0;
+    }
+
+    legend {
+        min-height: 90px;
+    }
+
+    .stars i {
+        font-size: 2.8rem;
+    }
+
+    .time i {
+        font-size: 2.5rem;
+    }
+
+    // Levels
+    h5 {
+        font-size: 3rem;
+    }
+
+    .levels img {
+        width: 45%;
+    }
+
 }

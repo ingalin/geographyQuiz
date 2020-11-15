@@ -23,9 +23,9 @@ let incorrectAnswer = 0;
 let questionLevelCount = 0;
 let questionCount = 0;
 let levels = 0;
-const maxQuestionsPerLevel = 1;
-const gameOver = 3;
-const winner = 30;
+const maxQuestionsPerLevel = 2;
+const gameOver = 20;
+const winner = 4;
 let countIcons = 0;
 
 // Game over after incorrect answers
@@ -82,24 +82,24 @@ app.timeReductionLimit = function () {
 // If certain number of questions reached, go to the next level
 app.nextLevel = function () {
     if (questionCount == winner){
-        $("main").html("Winner!!!");
+        $("main").empty().addClass("addBalloons").append(`<h3>Winner!!!</h3><div class="balloonDiv"><div class="balloon"></div><div class="balloon"></div><div class="balloon"></div><div class="balloon"></div><div class="balloon"></div></div>`);
     }
     if (questionLevelCount == maxQuestionsPerLevel) {
         $(".show").first().remove();
         clearInterval(interval);
-        // $(".time").addClass("levelsTime");
         // Set the limit by how much time can be reduced
         app.timeReductionLimit();
         levels++;
         // Append information about levels, mistakes, remove unnecessary information
-        $(".levels").append(`<h5 class="start2">Congratulations! Level ${levels} completed!</h5><p>You have ${timeCount} seconds to answer next questions</p><button class="start2" type="submit">Next Level</button><img class="doubleImg1" src="styles/assets/hiclipart2com(1).png" alt="image of the "><img class="doubleImg" src="styles/assets/hiclipart2com(1).png" alt="image of the earth">`);
+        $(".levels").removeClass("levelsMessage").append(`<h5><span class="congrat">Congratulations! </span><span class="levelMessage">Level ${levels} completed!</span></h5><p>You have ${timeCount} seconds to answer next questions</p><button class="start2" type="submit">Next Level</button><img class="doubleImg1" src="styles/assets/hiclipart2com(1).png" alt="image of the "><img class="doubleImg" src="styles/assets/hiclipart2com(1).png" alt="image of the earth">`);
         $(".progress").empty();
         if (incorrectAnswer > 0) {
             incorrectAnswer--;
             $(".stars").prepend(`<i class="fas fa-2x fa-star fullStar"></i>`);
             $(".emptyStar").first().remove();
             $(".mistakes").html(`<h4>Stars left: ${gameOver - incorrectAnswer}/${gameOver}</h4>`);
-            $(".bonusPoints").fadeIn().html(`<h6>+1 you get one extra point for reaching a level</h6>`).fadeOut(10000);
+            // Show bonus points
+            $(".bonusPoints").fadeIn().html(`<h6>+1 bonus point</h6>`).fadeOut(10000);
         }
         else {
             $(".mistakes").html(`<h4>Stars left: ${gameOver - incorrectAnswer}/${gameOver}</h4>`);
@@ -128,12 +128,14 @@ app.timeout = function () {
         app.countIncorrectAnswers();
         questionLevelCount++;
         // If certain number of questions reached, go to the next level
+        $(".fullStar").last(".fullStar").remove();
+        $(".stars").append(`<i class="far fa-2x fa-star emptyStar"></i>`);
         app.nextLevel();
         $(".show").next(".hide").addClass("show");
         $(".show").first().remove();
         $(".mistakes").html(`<h4>Stars left: ${gameOver - incorrectAnswer}/${gameOver}</h4>`);
-        $(".fullStar").last(".fullStar").remove();
-        $(".stars").append(`<i class="far fa-2x fa-star emptyStar"></i>`);
+        // $(".fullStar").last(".fullStar").remove();
+        // $(".stars").append(`<i class="far fa-2x fa-star emptyStar"></i>`);
         countIcons=0;
     };
     //Show timer on screen
@@ -206,7 +208,7 @@ app.submitButton = function () {
     });
 }
 
-//Start2 button which appears after a level is reached
+//Start2 button which appears after a level is reached; go to the next question:
 app.nextLevelButton = function () {
     $("main").on('click', ".start2", function (event) {
         // Prevent Default 
@@ -223,6 +225,7 @@ app.nextLevelButton = function () {
         $(".mistakeCount").removeClass("levelsMistakes");
         $(".stars").removeClass("levelsStars");
         $(".levels").empty();
+        $(".bonusPoints").empty();
     });
 }
 
@@ -238,7 +241,7 @@ app.startButton = function(){
         // Prevent Default 
         event.preventDefault();
         // Update field information
-        // $(".levels").empty();
+        $(".levels").addClass("levelsMessage");
         $(".timer").removeClass("hide");
         $(".mistakes").html(`<h4>Stars left: ${gameOver - incorrectAnswer}/${gameOver}</h4>`);
         // Add first icons
@@ -271,6 +274,7 @@ app.init = function () {
     // https://www.edsys.in/geography-quiz-for-kids-107-questions-answers/#1
     // https://www.funtrivia.com/en/ForChildren/Canadian-Geography-for-Kids-18561_3.html
 //Pievienot pie Game Over un Winner - play again, restart page
+//Back Forward buttons - restart??
 
     //Press start button
     app.startButton();

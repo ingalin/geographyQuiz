@@ -6,6 +6,37 @@ $shadowsBorders: #f390bc;
 // $lightBackground: #d3b5d5;
 $backgroundTransp: rgba(100, 50, 147, 0.65);
 
+// Base of the animation code from https://www.w3docs.com/snippets/css
+@keyframes glowing {
+    0% {
+        background-color: $mainText;
+        box-shadow: 0 0 5px $mainText;
+    }
+    50% {
+        background-color: $shadowsBorders;
+        box-shadow: 0 0 30px $shadowsBorders;
+    }
+    100% {
+        background-color: $mainText;
+        box-shadow: 0 0 5px $mainText;
+    }
+}
+
+@keyframes glowing2 {
+    0% {
+        box-shadow: 0 0 5px $borders;
+    }
+    50% {
+        box-shadow: 
+            0 0 70px 1rem $shadowsBorders,
+            0 0 80px 2rem $borders,
+            0 0 100px 3rem $mainText;
+    }
+    100% {
+        box-shadow: 0 0 5px $borders;
+    }
+}
+
 
 @mixin fontSquare(){
     font-family: 'Nova Square', cursive;
@@ -38,15 +69,28 @@ body {
 }
 
 button {
-    color: rgb(95, 21, 34);
-    padding: 10px 30px;
+    @include fontRokkit();
+    font-size: 3.5rem;
+    color: $headingColor;
+    background-color: $mainText;
+    padding: 20px 30px;
     text-decoration: none;
-    margin: 20px 0 0;
+    margin: 0;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 15px;
+    animation: glowing 1300ms infinite;
+    border: 2px $borders solid;
+    cursor: pointer;
 }
 
 button:hover, button:focus {
-    // background: #1f2022;
-    color: #f4f4f4;
+    border: 2px $headingColor solid;
+    text-decoration: underline;
+    text-decoration-color: $borders;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 5px;
+    animation: glowing2 1300ms infinite;
 }
 
 img {
@@ -63,6 +107,7 @@ h1 {
     font-weight: 600;
     line-height: 1.2;
     margin: 0;
+    z-index: 2;
 }
 
 h2 {
@@ -76,16 +121,26 @@ h3 {
     text-transform: uppercase;
 }
 
-h4 {
+h4, h5, h6 {
     @include fontRokkit();
-    font-size: 2.2rem;
     color: $headingColor;
+}
+
+h4 {
+    font-size: 2.2rem;
+}
+
+h5, h6 {
+    text-align: center;
 }
 
 h5 {
     font-size: 5rem;
-    color: $headingColor;
-    @include fontRokkit();
+    text-transform: uppercase;
+}
+
+h6 {
+    font-size: 3.5rem;
 }
 
 // Hide or Show
