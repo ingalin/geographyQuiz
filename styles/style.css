@@ -378,7 +378,7 @@ h3 {
   text-transform: uppercase;
 }
 
-h1, h3, h4, h5, h6 {
+h1, h3, h4, h5, h6, h7 {
   font-family: 'Rokkitt', serif;
   color: #fdfefa;
 }
@@ -398,6 +398,10 @@ h5 {
 
 h6 {
   font-size: 3.5rem;
+}
+
+h7 {
+  font-size: 4rem;
 }
 
 .hide {
@@ -733,7 +737,7 @@ input[type="radio"]:checked + label {
 
 .addAnimationWinner {
   background-color: #643293;
-  padding: 30px 100px;
+  padding: 20px 100px;
   border-radius: 20px;
   -webkit-animation: glowing2 2600ms infinite;
           animation: glowing2 2600ms infinite;
@@ -756,7 +760,7 @@ input[type="radio"]:checked + label {
 }
 
 .winnerPage img {
-  width: 40%;
+  width: 28%;
 }
 
 .gameOver {
@@ -792,7 +796,7 @@ header {
 .headerText {
   text-align: center;
   background-color: rgba(100, 50, 147, 0.65);
-  padding: 30px 30px 60px;
+  padding: 5px 30px 60px;
   border-radius: 20px;
 }
 
@@ -835,15 +839,105 @@ header img {
   z-index: 2;
 }
 
+.howToPlay {
+  text-align: right;
+}
+
+.howToPlayButton {
+  margin-right: -25px;
+  margin-bottom: -15px;
+  padding: 0;
+}
+
+.howToPlayButton i, .close i {
+  padding: 5px 20px;
+}
+
+.close {
+  display: block;
+  padding: 0;
+  margin-right: -40px;
+}
+
+.howToPlayDetails {
+  display: none;
+  position: absolute;
+  background-color: #643293;
+  color: #fdfefa;
+  font-size: 1.8rem;
+  padding: 10px 50px 20px;
+  border-radius: 20px;
+  border: 5px solid #4fcadb;
+  z-index: 3;
+  text-align: left;
+  min-width: 350px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.closeButtonDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.howToPlayDetailsShow {
+  display: block;
+}
+
+.blockView {
+  position: absolute;
+  height: 100vh;
+  min-height: 640px;
+  top: 0;
+  z-index: 2;
+  background-color: rgba(79, 202, 219, 0.65);
+  width: 100%;
+}
+
+.howToPlayDetails span {
+  font-family: 'Rokkitt', serif;
+  font-size: 1.6rem;
+}
+
+.links {
+  margin-top: 15px;
+}
+
+.howToPlayDetails a {
+  font-family: 'Rokkitt', serif;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  color: #fdfefa;
+  text-decoration: none;
+  padding: 5px 1px;
+  display: inline;
+}
+
+.howToPlayDetails a:hover, .howToPlayDetails a:focus {
+  color: #f390bc;
+}
+
 @media (max-width: 1150px) {
   h1 {
-    font-size: 8rem;
+    font-size: 7.5rem;
+    margin-top: -8px;
+    margin-bottom: 12px;
   }
   h2 {
     font-size: 2.8rem;
+    margin-bottom: 15px;
   }
   .headerText {
     padding: 15px;
+  }
+  .howToPlayButton {
+    margin: -15px -10px 0 0;
   }
   form {
     width: 65%;
@@ -930,6 +1024,9 @@ header img {
         -ms-flex-pack: center;
             justify-content: center;
     margin-top: -10px;
+  }
+  form div {
+    margin: 10px 0;
   }
   label {
     padding: 10px 5px 10px 65px;
@@ -1049,7 +1146,7 @@ header img {
     font-size: 6.9rem;
   }
   .winnerPage img {
-    width: 60%;
+    width: 55%;
   }
   .gameOver {
     font-size: 7rem;
@@ -1069,8 +1166,8 @@ header img {
   header img {
     width: 100%;
   }
-  form div {
-    margin: 5px 0;
+  .howToPlayButton i {
+    padding: 5px 8px;
   }
   legend {
     min-height: 90px;

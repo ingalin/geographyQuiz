@@ -2,15 +2,22 @@
 @media (max-width: 1150px) {
     // Header
     h1 {
-        font-size: 8rem;
+        font-size: 7.5rem;
+        margin-top: -8px;
+        margin-bottom: 12px;
     }
 
     h2 {
         font-size: 2.8rem;
+        margin-bottom: 15px;
     }
 
     .headerText {
         padding: 15px;
+    }
+
+    .howToPlayButton {
+        margin: -15px -10px 0 0;
     }
 
     // Main 
@@ -120,6 +127,10 @@
     .stars {
         justify-content: center;
         margin-top: -10px;
+    }
+
+    form div {
+        margin: 10px 0;
     }
 
     label {
@@ -266,7 +277,7 @@
     }
 
     .winnerPage img {
-        width: 60%;
+        width: 55%;
     }
 
     // Game Over 
@@ -293,14 +304,11 @@
         width: 100%;
     }
 
-    // Main
-    label {
-        // min-height: 77px;
+    .howToPlayButton i {
+        padding: 5px 8px;
     }
 
-    form div {
-        margin: 5px 0;
-    }
+    // Main
 
     legend {
         min-height: 90px;

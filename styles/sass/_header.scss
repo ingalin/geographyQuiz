@@ -19,7 +19,7 @@ header {
 .headerText {
     text-align: center;
     background-color: $backgroundTransp;
-    padding: 30px 30px 60px;
+    padding: 5px 30px 60px;
     border-radius: 20px;
 }
 
@@ -55,4 +55,84 @@ header img {
     display: flex;
     align-items: flex-start;
     z-index: 2;
+}
+
+// How to Play?
+.howToPlay {
+    text-align: right;
+}
+
+.howToPlayButton {
+    margin-right: -25px;
+    margin-bottom: -15px;
+    padding: 0;
+}
+
+.howToPlayButton i, .close i {
+    padding: 5px 20px;
+}
+
+.close {
+    display: block;
+    padding: 0;
+    margin-right: -40px;
+}
+
+.howToPlayDetails {
+    display: none;
+    position: absolute;
+    background-color: $mainText;
+    color: $headingColor;
+    font-size: 1.8rem;
+    padding: 10px 50px 20px;
+    border-radius: 20px;
+    border: 5px solid $borders;
+    z-index: 3;
+    text-align: left;
+    min-width: 350px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.closeButtonDiv {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.howToPlayDetailsShow {
+    display: block;
+}
+
+.blockView {
+    position: absolute;
+    height: 100vh;
+    min-height: 640px;
+    top: 0;
+    z-index: 2;
+    background-color: $blockTransp;
+    width: 100%;
+}
+
+.howToPlayDetails span {
+    @include fontRokkit();
+    font-size: 1.6rem;
+}
+
+.links {
+    margin-top: 15px;
+}
+
+.howToPlayDetails a {
+    @include fontRokkit();
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    color: $headingColor;
+    text-decoration: none;
+    padding: 5px 1px;
+    display: inline;
+}
+
+.howToPlayDetails a:hover, .howToPlayDetails a:focus {
+    color: $shadowsBorders;
 }

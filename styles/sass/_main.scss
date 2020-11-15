@@ -253,7 +253,7 @@ input[type="radio"]:checked + label {
 
 .addAnimationWinner {
     background-color: $mainText;
-    padding: 30px 100px;
+    padding: 20px 100px;
     border-radius: 20px;
     animation: glowing2 2600ms infinite;
     display: flex;
@@ -266,7 +266,7 @@ input[type="radio"]:checked + label {
 }
 
 .winnerPage img {
-    width: 40%;
+    width: 28%;
 }
 
 // Game Over

@@ -16,25 +16,23 @@
 
 
 const app = {};
-const maxQuestionsPerLevel = 6;
-const gameOver = 3;
-const winner = 30;
-app.interval;
+let interval;
 app.timeCount = 12;
-app.startTime = 12;
-app.incorrectAnswer = 0;
-app.questionLevelCount = 0;
-app.questionCount = 0;
-app.countIcons = 0;
-app.levels = 0;
-
-
+let startTime = 12;
+let incorrectAnswer = 0;
+let questionLevelCount = 0;
+let questionCount = 0;
+let levels = 0;
+const maxQuestionsPerLevel = 6;
+const gameOver = 20;
+const winner = 2;
+let countIcons = 0;
 
 // Game over after incorrect answers
 app.countIncorrectAnswers = function () {
-    app.incorrectAnswer++;
-    if (app.incorrectAnswer == gameOver) {
-        clearInterval(app.interval);
+    incorrectAnswer++;
+    if (incorrectAnswer == gameOver) {
+        clearInterval(interval);
         $("main").html(`<h3 class="gameOver">Game Over</h3><button class="playAgain" type="submit">Play Again</button><img src="styles/assets/hiclipartcom.png" alt="image of sad earth">`).addClass("levelsStyles");
     };
 }
@@ -42,7 +40,7 @@ app.countIncorrectAnswers = function () {
 //Function for incorrect answers
 app.incorect = function () {
     app.countIncorrectAnswers();
-    $(".mistakes").html(`<h4>Stars left: ${gameOver - app.incorrectAnswer}/${gameOver}</h4>`);
+    $(".mistakes").html(`<h4>Stars left: ${gameOver - incorrectAnswer}/${gameOver}</h4>`);
     $(".fullStar").last(".fullStar").remove();
     $(".stars").append(`<i class="far fa-2x fa-star emptyStar"></i>`);
 
@@ -73,17 +71,17 @@ app.randomOrder = function (itemToOrder) {
 app.timeReductionLimit = function () {
     if (app.timeCount <= 4) {
         app.timeCount = 4;
-        app.startTime = 4;
+        startTime = 4;
     }
     else {
         app.timeCount = app.timeCount - 2;
-        app.startTime = app.startTime - 2;
+        startTime = startTime - 2;
     }
 }
 
 // Winner page
 app.winnerFunction = function () {
-    if (app.questionCount == winner) {
+    if (questionCount == winner) {
         $("main").empty().append(`<div class="wrapper winnerPage"><h3 class="addAnimationWinner ">Winner!!!</h3><button class="playAgain" type="submit">Play Again</button><img src="styles/assets/hiclipartcom_smily.png" alt="image of smily earth"></div>`);
     }
 }
@@ -93,25 +91,25 @@ app.nextLevel = function () {
     // Check if max number of questions is answered (check for the winner)
     app.winnerFunction();
     // Otherwise go to the next level
-    if (app.questionLevelCount == maxQuestionsPerLevel) {
+    if (questionLevelCount == maxQuestionsPerLevel) {
         $(".show").first().remove();
-        clearInterval(app.interval);
+        clearInterval(interval);
         // Set the limit by how much time can be reduced
         app.timeReductionLimit();
-        app.levels++;
+        levels++;
         // Append information about levels, mistakes, remove unnecessary information
-        $(".levels").removeClass("levelsMessage").append(`<h5><span class="congrat">Congratulations! </span><span class="levelMessage">Level ${app.levels} completed!</span></h5><p>You have ${app.timeCount} seconds to answer next questions</p><button class="start2" type="submit">Next Level</button><img class="doubleImg1" src="styles/assets/hiclipart2com(1).png" alt="image of the "><img class="doubleImg" src="styles/assets/hiclipart2com(1).png" alt="image of the earth">`);
+        $(".levels").removeClass("levelsMessage").append(`<h5><span class="congrat">Congratulations! </span><span class="levelMessage">Level ${levels} completed!</span></h5><p>You have ${app.timeCount} seconds to answer next questions</p><button class="start2" type="submit">Next Level</button><img class="doubleImg1" src="styles/assets/hiclipart2com(1).png" alt="image of the "><img class="doubleImg" src="styles/assets/hiclipart2com(1).png" alt="image of the earth">`);
         $(".progress").empty();
-        if (app.incorrectAnswer > 0) {
-            app.incorrectAnswer--;
+        if (incorrectAnswer > 0) {
+            incorrectAnswer--;
             $(".stars").prepend(`<i class="fas fa-2x fa-star fullStar"></i>`);
             $(".emptyStar").first().remove();
-            $(".mistakes").html(`<h4>Stars left: ${gameOver - app.incorrectAnswer}/${gameOver}</h4>`);
+            $(".mistakes").html(`<h4>Stars left: ${gameOver - incorrectAnswer}/${gameOver}</h4>`);
             // Show bonus points
             $(".bonusPoints").html(`<h6>+1 bonus point</h6>`).fadeOut(5000);
         }
         else {
-            $(".mistakes").html(`<h4>Stars left: ${gameOver - app.incorrectAnswer}/${gameOver}</h4>`);
+            $(".mistakes").html(`<h4>Stars left: ${gameOver - incorrectAnswer}/${gameOver}</h4>`);
         }
         // Style the page
         $(".timer h4").remove();
@@ -128,24 +126,24 @@ app.timeout = function () {
     app.timeCount--;
     // If certain amount of time passed, go to the next question, reduce points for an incorrect answer
     if (app.timeCount < 0) {
-        app.questionCount++;
-        console.log(app.questionCount);
-        app.timeCount = app.startTime;
+        questionCount++;
+        console.log(questionCount);
+        app.timeCount = startTime;
         // Empty icons for the next question // add new icons
         app.addFirstIcons();
         // Count incorrect answers
         app.countIncorrectAnswers();
-        app.questionLevelCount++;
+        questionLevelCount++;
         // If certain number of questions reached, go to the next level
         $(".fullStar").last(".fullStar").remove();
         $(".stars").append(`<i class="far fa-2x fa-star emptyStar"></i>`);
         app.nextLevel();
         $(".show").next(".hide").addClass("show");
         $(".show").first().remove();
-        $(".mistakes").html(`<h4>Stars left: ${gameOver - app.incorrectAnswer}/${gameOver}</h4>`);
+        $(".mistakes").html(`<h4>Stars left: ${gameOver - incorrectAnswer}/${gameOver}</h4>`);
         // $(".fullStar").last(".fullStar").remove();
         // $(".stars").append(`<i class="far fa-2x fa-star emptyStar"></i>`);
-        app.countIcons = 0;
+        countIcons = 0;
     };
     //Show timer on screen
     $(".timer").html(`<h4>Time left: ${app.timeCount}s</h4>`);
@@ -153,13 +151,13 @@ app.timeout = function () {
 
 //Timer function
 app.timer = function () {
-    app.interval = setInterval(function () {
+    interval = setInterval(function () {
         // Function if time is used and no asnwer is selected
         app.timeout();
         // Remove the last icon (only the first question) // replace other icons one by one as time goes // remove the first circle (only the first question)
         $(`.count${app.timeCount}`).remove();
-        $(".progress").append(`<i class="far fa-circle countCircle${app.countIcons}"></i>`);
-        app.countIcons++;
+        $(".progress").append(`<i class="far fa-circle countCircle${countIcons}"></i>`);
+        countIcons++;
         $(".countCircle0").remove();
     }, 700);
     // }, 1000);
@@ -167,7 +165,7 @@ app.timer = function () {
 
 // Timeout function for the first replacement icon to appear (runs only once at Level 0)
 app.timerForCircle = function () {
-    app.intervalCircle = setTimeout(function () {
+    intervalCircle = setTimeout(function () {
         $(".progress").append(`<i class="far fa-circle countCircle"></i>`);
     }, 1000);
 }
@@ -193,14 +191,14 @@ app.submitButton = function () {
     $("main").on('click', ".submit", function (event) {
         // Prevent default
         event.preventDefault();
-        app.questionLevelCount++;
-        app.questionCount++;
-        console.log(app.questionCount);
+        questionLevelCount++;
+        questionCount++;
+        console.log(questionCount);
 
         // Restart timer
-        clearInterval(app.interval);
-        app.timeCount = app.startTime;
-        $(".timer").html(`<h4>Time left: ${app.startTime}s</h4>`);
+        clearInterval(interval);
+        app.timeCount = startTime;
+        $(".timer").html(`<h4>Time left: ${startTime}s</h4>`);
         app.timer();
         // Make answers random
         let inputLabelDiv = [];
@@ -233,7 +231,7 @@ app.nextLevelButton = function () {
         //Trigger first start button to do all the same functions from the start
         $(".start").trigger('click');
         $(this).closest("div").empty();
-        app.questionLevelCount = 0;
+        questionLevelCount = 0;
         // $(".time").removeClass("hide");
         // Reset styles
         $(".time").removeClass("levelsTime");
@@ -276,11 +274,11 @@ app.startButton = function () {
         // Update field information
         $(".levels").addClass("levelsMessage");
         $(".timer").removeClass("hide");
-        $(".mistakes").html(`<h4>Stars left: ${gameOver - app.incorrectAnswer}/${gameOver}</h4>`);
+        $(".mistakes").html(`<h4>Stars left: ${gameOver - incorrectAnswer}/${gameOver}</h4>`);
         // Add first icons
         app.addFirstIcons();
         // Timeout function for the first replacement icon to appear
-        if (app.questionLevelCount == 0) {
+        if (questionLevelCount == 0) {
             app.timerForCircle();
         };
         // Timer
