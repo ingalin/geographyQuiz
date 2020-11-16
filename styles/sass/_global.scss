@@ -6,7 +6,30 @@ $backgroundTransp: rgba(100, 50, 147, 0.65);
 $blockTransp: rgba(79,202,219, 0.65);
 
 
-// Base of the animation code from https://www.w3docs.com/snippets/css
+@keyframes flyingEarth {
+    0% {
+        bottom: 0;
+        left: 5%;
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        margin-left: 100px;
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        margin-left: 10px;
+    }
+    100% {
+        bottom: 100%;
+        left: 5%;
+    }
+}
+
 @keyframes glowing {
     0% {
         background-color: $mainText;

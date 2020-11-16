@@ -277,30 +277,6 @@ input[type="radio"]:checked + label {
     width: 28%;
 }
 
-@keyframes flyingEarth {
-    0% {
-        bottom: 0;
-        left: 5%;
-    }
-    20%,
-    40%,
-    60%,
-    80% {
-        margin-left: 100px;
-    }
-    10%,
-    30%,
-    50%,
-    70%,
-    90% {
-        margin-left: 10px;
-    }
-    100% {
-        bottom: 100%;
-        left: 5%;
-    }
-}
-
 .winnerPage img {
     position: absolute;
     animation: flyingEarth 3s linear infinite;

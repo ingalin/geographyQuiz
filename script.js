@@ -90,7 +90,7 @@
 const app = {};
 const maxQuestionsPerLevel = 6;
 const gameOver = 3;
-const winner = 1;
+const winner = 30;
 app.interval;
 app.timeCount = 12;
 app.startTime = 12;
