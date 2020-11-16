@@ -351,25 +351,25 @@ html {
 
 @-webkit-keyframes glowing3 {
   0% {
-    text-shadow: -15px -15px 2rem #f390bc;
+    text-shadow: -10px -10px 1rem #f390bc;
   }
   50% {
-    text-shadow: -10px -10px 3rem #fdfefa;
+    text-shadow: -8px -8px 2rem #fdfefa;
   }
   100% {
-    text-shadow: -5px -5px 4rem #f390bc;
+    text-shadow: -5px -5px 3rem #f390bc;
   }
 }
 
 @keyframes glowing3 {
   0% {
-    text-shadow: -15px -15px 2rem #f390bc;
+    text-shadow: -10px -10px 1rem #f390bc;
   }
   50% {
-    text-shadow: -10px -10px 3rem #fdfefa;
+    text-shadow: -8px -8px 2rem #fdfefa;
   }
   100% {
-    text-shadow: -5px -5px 4rem #f390bc;
+    text-shadow: -5px -5px 3rem #f390bc;
   }
 }
 
@@ -864,6 +864,7 @@ input[type="radio"]:checked + label {
 
 .gameOverImg {
   max-width: 60%;
+  margin-top: 20px;
 }
 
 header {
@@ -1181,6 +1182,10 @@ header img {
   }
   .howToPlayDetails {
     padding-left: 20px;
+    padding-right: 20px;
+  }
+  .close {
+    margin-right: -7px;
   }
 }
 

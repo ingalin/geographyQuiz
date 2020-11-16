@@ -62,13 +62,13 @@ $blockTransp: rgba(79,202,219, 0.65);
 
 @keyframes glowing3 {
     0% {
-        text-shadow: -15px -15px 2rem $shadowsBorders;
+        text-shadow: -10px -10px 1rem $shadowsBorders;
     }
     50% {
-        text-shadow: -10px -10px 3rem $headingColor;
+        text-shadow: -8px -8px 2rem $headingColor;
     }
     100% {
-        text-shadow: -5px -5px 4rem $shadowsBorders;
+        text-shadow: -5px -5px 3rem $shadowsBorders;
     }
 }
 
