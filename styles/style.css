@@ -351,25 +351,25 @@ html {
 
 @-webkit-keyframes glowing3 {
   0% {
-    text-shadow: 10px 10px 5rem #f390bc;
+    text-shadow: -15px -15px 2rem #f390bc;
   }
   50% {
-    text-shadow: 8px 8px 3rem #fdfefa;
+    text-shadow: -10px -10px 3rem #fdfefa;
   }
   100% {
-    text-shadow: 5px 5px 4rem #f390bc;
+    text-shadow: -5px -5px 4rem #f390bc;
   }
 }
 
 @keyframes glowing3 {
   0% {
-    text-shadow: 10px 10px 5rem #f390bc;
+    text-shadow: -15px -15px 2rem #f390bc;
   }
   50% {
-    text-shadow: 8px 8px 3rem #fdfefa;
+    text-shadow: -10px -10px 3rem #fdfefa;
   }
   100% {
-    text-shadow: 5px 5px 4rem #f390bc;
+    text-shadow: -5px -5px 4rem #f390bc;
   }
 }
 
@@ -862,6 +862,10 @@ input[type="radio"]:checked + label {
   text-align: center;
 }
 
+.gameOverImg {
+  max-width: 60%;
+}
+
 header {
   background: url(./assets/jeremy-perkins-FsK54FVNRfM-unsplash_small.jpg);
   background-size: cover;
@@ -1174,6 +1178,9 @@ header img {
   }
   .stars i {
     font-size: 4rem;
+  }
+  .howToPlayDetails {
+    padding-left: 20px;
   }
 }
 

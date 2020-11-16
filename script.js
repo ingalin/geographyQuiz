@@ -113,7 +113,7 @@ app.countIncorrectAnswers = function () {
         // Stop time
         clearInterval(app.interval);
         // Show mwssage and new game button
-        $("main").html(`<h3 class="gameOver">Game Over</h3><button class="playAgain" type="submit">Play Again</button><img src="styles/assets/hiclipartcom.png" alt="image of sad earth">`).addClass("levelsStyles");
+        $("main").html(`<h3 class="gameOver">Game Over</h3><button class="playAgain" type="submit">Play Again</button><img class="gameOverImg" src="styles/assets/hiclipartcom.png" alt="image of sad earth">`).addClass("levelsStyles");
         app.playAgain();
     };
 }
