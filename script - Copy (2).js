@@ -1,92 +1,20 @@
 //Document Ready
-//Init function:
-    // Activate How To Play button
-        // Show information about game rules, block the back view
-        // Activate Close How to Play
-            // Hide How to play message, remove "block view"
-
-    // Activate Start button
-        // Prevent Default 
-        // Show timer and a globe for each second
-        // Start the timer
-            // If time has passed and no answer selected:
-                // Count it as an answered question
-                // Reset time
-                // Delete current globe icons
-                // Run the function to add new globe icons for the next question
-                // Add it to inccorrect answers
-                    // Check if the max amount of incorrect answers is not reached, if it's reached, clear all text and insert "Game Over"
-                        // Play Again Button
-                            // Restart the page
-                // Update star count (remove one, show next one, update text)
-                // If certain number of questions reached, go to the next level
-                    // Check if max number of questions is answered (check for the winner)
-                        //If winner, clear screen, show a Winner message
-                            // Play Again Button
-                                // Restart the page
-                    // Else show Next Level Page
-                        // Stop timer
-                        // Reduce time allowed for each question
-                            // Force it not to be lower than 4 seconds
-                        // Add one Level
-                        // Append information about levels, mistakes, remove unnecessary information
-                        // If incorrect answers > 0 add one bonus point, show a message, add a star
-                        // Style the page
-                // Go to the next question if not a new level
-            // Order all forms in a random order
-            // Hide Header, show the first question, make the answers random for the first question only
-            // Activate Click on Radio Input
-                // If answer is selected, show Submit button
-
-    // Activate Next Level button
-        // After Next Level button is clicked:
-            // Trigger Start button to do all the same functions from the start
-            // Style the page
-
-    // Activate Submit button
-        // Count questions and answers
-        // Restart timer
-        // Make answers random for the next question
-        // Check if the answer is correct or no
-            // Add points if the answer is correct
-            // Add new timer icons
-            // If certain number of questions reached, go to the next level
-                // Check if max number of questions is answered (check for the winner)
-                    //If winner, clear screen, show a Winner message
-                        // Play Again Button
-                            // Restart the page
-                // Else show Next Level Page
-                    // Stop timer
-                    // Reduce time allowed for each question
-                        // Force it not to be lower than 4 seconds
-                    // Add one Level
-                    // Append information about levels, mistakes, remove unnecessary information
-                    // If incorrect answers > 0 add one bonus point, show a message, add a star
-                    // Style the page
-            // If the answer is not correct:
-                // Add it to inccorrect answers
-                    // Check if the max amount of incorrect answers is not reached, if it's reached, clear all text and insert "Game Over"
-                        // Play Again Button
-                            // Restart the page
-                // Update star count (remove one, show next one, update text)
-                // If certain number of questions reached, go to the next level
-                    // Check if max number of questions is answered (check for the winner)
-                        //If winner, clear screen, show a Winner message
-                            // Play Again Button
-                                // Restart the page
-                    // Else show Next Level Page
-                        // Stop timer
-                        // Reduce time allowed for each question
-                            // Force it not to be lower than 4 seconds
-                        // Add one Level
-                        // Append information about levels, mistakes, remove unnecessary information
-                        // If incorrect answers > 0 add one bonus point, show a message, add a star
-                        // Style the page
-            // If not a new level, winner or game over, go to the next question
+//When player presses on Start Game:
+//Prevent Default
+//Order all questions in a random order
+//Hide the header, show only the first question
+//Make the answers of the first question random
+//When Submit is pressed for each question:
+//Prevent Default
+//Make answers for the next question random
+//If no answer selected, show an error message
+//Count incorrect answers
+//Hide current question, show the next question
+//When max incorrect answer count reached, show Game Over
+//If max incorrect answer count is not reached, show Winner!!
 
 
 
-// Change maxQuestionsPerLevel, gameOver, winner, timeCount, startTime to change the rules of the game
 const app = {};
 const maxQuestionsPerLevel = 6;
 const gameOver = 3;
@@ -106,11 +34,8 @@ app.levels = 0;
 app.countIncorrectAnswers = function () {
     app.incorrectAnswer++;
     if (app.incorrectAnswer == gameOver) {
-        // Stop time
         clearInterval(app.interval);
-        // Show mwssage and new game button
         $("main").html(`<h3 class="gameOver">Game Over</h3><button class="playAgain" type="submit">Play Again</button><img src="styles/assets/hiclipartcom.png" alt="image of sad earth">`).addClass("levelsStyles");
-        app.playAgain();
     };
 }
 
@@ -120,6 +45,7 @@ app.incorect = function () {
     $(".mistakes").html(`<h4>Stars left: ${gameOver - app.incorrectAnswer}/${gameOver}</h4>`);
     $(".fullStar").last(".fullStar").remove();
     $(".stars").append(`<i class="far fa-2x fa-star emptyStar"></i>`);
+
     // Add icons for timer
     app.addFirstIcons();
     // If certain number of questions reached, go to the next level
@@ -155,11 +81,10 @@ app.timeReductionLimit = function () {
     }
 }
 
-// Winner page, show message, button to play again
+// Winner page
 app.winnerFunction = function () {
     if (app.questionCount == winner) {
         $("main").empty().append(`<div class="wrapper winnerPage"><h3 class="addAnimationWinner ">Winner!!!</h3><button class="playAgain" type="submit">Play Again</button><img src="styles/assets/hiclipartcom_smily.png" alt="image of smily earth"></div>`);
-        app.playAgain();
     }
 }
 
@@ -217,6 +142,8 @@ app.timeout = function () {
         $(".show").next(".hide").addClass("show");
         $(".show").first().remove();
         $(".mistakes").html(`<h4>Stars left: ${gameOver - app.incorrectAnswer}/${gameOver}</h4>`);
+        // $(".fullStar").last(".fullStar").remove();
+        // $(".stars").append(`<i class="far fa-2x fa-star emptyStar"></i>`);
         app.countIcons = 0;
     };
     //Show timer on screen
@@ -233,7 +160,8 @@ app.timer = function () {
         $(".progress").append(`<i class="far fa-circle countCircle${app.countIcons}"></i>`);
         app.countIcons++;
         $(".countCircle0").remove();
-    }, 1000);
+    }, 700);
+    // }, 1000);
 };
 
 // Timeout function for the first replacement icon to appear (runs only once at Level 0)
@@ -243,7 +171,7 @@ app.timerForCircle = function () {
     }, 1000);
 }
 
-// Add icons (globes)
+// Add icons
 app.addFirstIcons = function () {
     $(".progress").empty();
     for (let i = 0; i < app.timeCount; i++) {
@@ -251,18 +179,19 @@ app.addFirstIcons = function () {
     }
 }
 
-//Play Again button 
-app.playAgain = function () {
-    $("main").on('click', ".playAgain", function (event) {
-        // Reload page
-        location.reload();
-    });
-}
+//Play Again button button
+$("main").on('click', ".playAgain", function (event) {
+    // Prevent default
+    event.preventDefault();
+    // Reload page
+    location.reload();
+});
 
 //Press submit button to enter an answer
 app.submitButton = function () {
     $("main").on('click', ".submit", function (event) {
-        // Count questions
+        // Prevent default
+        event.preventDefault();
         app.questionLevelCount++;
         app.questionCount++;
         // Restart timer
@@ -296,10 +225,13 @@ app.submitButton = function () {
 //Start2 button which appears after a level is reached; go to the next question:
 app.nextLevelButton = function () {
     $("main").on('click', ".start2", function (event) {
+        // Prevent Default 
+        event.preventDefault();
         //Trigger first start button to do all the same functions from the start
         $(".start").trigger('click');
         $(this).closest("div").empty();
         app.questionLevelCount = 0;
+        // $(".time").removeClass("hide");
         // Reset styles
         $(".time").removeClass("levelsTime");
         $("main").removeClass("levelsStyles");
@@ -331,8 +263,6 @@ app.howToPlay = function(){
     $(".howToPlayButton").on("click", function(){
         $(".howToPlayDetails").addClass("howToPlayDetailsShow");
         $("header").append(`<div class="blockView"></div>`);
-        //Close How to play?
-        app.closeHowToPlay();
     });
 }
 
@@ -361,19 +291,32 @@ app.startButton = function () {
             inputLabelDiv.push($(this));
         });
         app.randomOrder(inputLabelDiv);
-        // Show Submit button on Input Radio click
-        app.inputRadioClick();
     });
 }
 
 //Start
 app.init = function () {
 
+    // Pievienot skaidrojumu, kaa speeleet!!!!!!!
+    //paarsaukt global variables uz app. 
+    // https://www.momjunction.com/articles/geography-quiz-questions_00472564/
+    // https://www.brightful.me/blog/geography-trivia-questions/
+    // https://www.edsys.in/geography-quiz-for-kids-107-questions-answers/#1
+    // https://www.funtrivia.com/en/ForChildren/Canadian-Geography-for-Kids-18561_3.html
+    //Pievienot pie Game Over un Winner - play again, restart page
+    //Back Forward buttons - restart??
+
     //How to play?
     app.howToPlay();
 
+    //Close How to play?
+    app.closeHowToPlay();
+
     //Press start button
     app.startButton();
+
+    // Input Radio on click
+    app.inputRadioClick();
 
     // Go to the next level button // Reset start after Level is reached
     app.nextLevelButton();
