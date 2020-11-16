@@ -19,7 +19,6 @@ main {
 }
 
 //Radio buttons and text
-
 form div {
     margin: 15px 0;
     display: flex;
@@ -29,7 +28,6 @@ form div {
 
 form {
     width: 60%;
-    // margin-top: 50px;
     background-color: $mainText;
     padding: 30px 40px 30px;
     border-radius: 20px;
@@ -37,7 +35,6 @@ form {
         0 0 30px 1rem $shadowsBorders,
         0 0 50px 2rem $borders,
         0 0 70px 3rem $mainText;
-    // min-height: 600px;
 }
 
 fieldset {
@@ -142,6 +139,17 @@ input[type="radio"]:checked + label {
 
 .fa-globe-americas, .fullStar {
     color: $borders;
+}
+
+.lastSeconds {
+    color: $shadowsBorders;
+    border-radius: 50%;
+    animation: glowing 1300ms infinite;
+}
+
+.lastStar {
+    color: $shadowsBorders;
+    animation: glowing3 1300ms infinite;
 }
 
 .fa-circle, .emptyStar {
@@ -261,7 +269,7 @@ input[type="radio"]:checked + label {
     justify-content: center;
     flex-direction: column;
     border: 3px solid $shadowsBorders;
-    margin: 100px 0 70px;
+    margin: 0 0 70px;
     width: 70%;
 }
 
@@ -269,8 +277,40 @@ input[type="radio"]:checked + label {
     width: 28%;
 }
 
-// Game Over
+@keyframes flyingEarth {
+    0% {
+        bottom: 0;
+        left: 5%;
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        margin-left: 100px;
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        margin-left: 10px;
+    }
+    100% {
+        bottom: 100%;
+        left: 5%;
+    }
+}
 
+.winnerPage img {
+    position: absolute;
+    animation: flyingEarth 3s linear infinite;
+}
+
+.winnerPage button {
+    z-index: 1;
+}
+
+// Game Over
 .gameOver {
     text-align: center;
 }

@@ -301,6 +301,30 @@ html {
   }
 }
 
+@-webkit-keyframes glowing3 {
+  0% {
+    text-shadow: 10px 10px 5rem #f390bc;
+  }
+  50% {
+    text-shadow: 8px 8px 3rem #fdfefa;
+  }
+  100% {
+    text-shadow: 5px 5px 4rem #f390bc;
+  }
+}
+
+@keyframes glowing3 {
+  0% {
+    text-shadow: 10px 10px 5rem #f390bc;
+  }
+  50% {
+    text-shadow: 8px 8px 3rem #fdfefa;
+  }
+  100% {
+    text-shadow: 5px 5px 4rem #f390bc;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -577,6 +601,19 @@ input[type="radio"]:checked + label {
   color: #4fcadb;
 }
 
+.lastSeconds {
+  color: #f390bc;
+  border-radius: 50%;
+  -webkit-animation: glowing 1300ms infinite;
+          animation: glowing 1300ms infinite;
+}
+
+.lastStar {
+  color: #f390bc;
+  -webkit-animation: glowing3 1300ms infinite;
+          animation: glowing3 1300ms infinite;
+}
+
 .fa-circle, .emptyStar {
   color: #f390bc;
 }
@@ -755,12 +792,70 @@ input[type="radio"]:checked + label {
       -ms-flex-direction: column;
           flex-direction: column;
   border: 3px solid #f390bc;
-  margin: 100px 0 70px;
+  margin: 0 0 70px;
   width: 70%;
 }
 
 .winnerPage img {
   width: 28%;
+}
+
+@-webkit-keyframes flyingEarth {
+  0% {
+    bottom: 0;
+    left: 5%;
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    margin-left: 100px;
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    margin-left: 10px;
+  }
+  100% {
+    bottom: 100%;
+    left: 5%;
+  }
+}
+
+@keyframes flyingEarth {
+  0% {
+    bottom: 0;
+    left: 5%;
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    margin-left: 100px;
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    margin-left: 10px;
+  }
+  100% {
+    bottom: 100%;
+    left: 5%;
+  }
+}
+
+.winnerPage img {
+  position: absolute;
+  -webkit-animation: flyingEarth 3s linear infinite;
+          animation: flyingEarth 3s linear infinite;
+}
+
+.winnerPage button {
+  z-index: 1;
 }
 
 .gameOver {

@@ -90,7 +90,7 @@
 const app = {};
 const maxQuestionsPerLevel = 6;
 const gameOver = 3;
-const winner = 30;
+const winner = 1;
 app.interval;
 app.timeCount = 12;
 app.startTime = 12;
@@ -105,6 +105,10 @@ app.levels = 0;
 // Game over after incorrect answers
 app.countIncorrectAnswers = function () {
     app.incorrectAnswer++;
+    // If one star left, show a flashing star
+    if (app.incorrectAnswer == 2) {
+        $(".fullStar").addClass("lastStar");
+    }
     if (app.incorrectAnswer == gameOver) {
         // Stop time
         clearInterval(app.interval);
@@ -195,12 +199,17 @@ app.nextLevel = function () {
         $(".formsDiv").addClass("levelsStyleForms");
         $(".mistakeCount").addClass("levelsMistakes");
         $(".stars").addClass("levelsStars");
+        $(".fullStar").removeClass("lastSeconds");
     };
 };
 
 //Function after time is used
 app.timeout = function () {
     app.timeCount--;
+    // Add flashing globes if time is close to the end
+    if (app.timeCount == 3){
+        $(".fa-globe-americas").addClass("lastSeconds");
+    }
     // If certain amount of time passed, go to the next question, reduce points for an incorrect answer
     if (app.timeCount < 0) {
         app.questionCount++;
@@ -381,8 +390,6 @@ app.init = function () {
     //Submit button to enter an answer
     app.submitButton();
 };
-
-
 
 //Document Ready
 $(() => app.init());
