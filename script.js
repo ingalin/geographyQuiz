@@ -199,7 +199,7 @@ app.nextLevel = function () {
         $(".formsDiv").addClass("levelsStyleForms");
         $(".mistakeCount").addClass("levelsMistakes");
         $(".stars").addClass("levelsStars");
-        $(".fullStar").removeClass("lastSeconds");
+        $(".fullStar").removeClass("lastStar");
     };
 };
 
