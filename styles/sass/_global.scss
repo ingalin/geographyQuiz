@@ -154,7 +154,7 @@ h3 {
     text-transform: uppercase;
 }
 
-h1, h3, h4, h5, h6, h7 {
+h1, h3, h4, h5, h6 {
     @include fontRokkit();
     color: $headingColor;
 }
@@ -176,7 +176,7 @@ h6 {
     font-size: 3.5rem;
 }
 
-h7 {
+.howToHeading {
     font-size: 4rem;
 }
 

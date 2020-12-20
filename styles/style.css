@@ -202,15 +202,6 @@ template {
   display: none;
 }
 
-.clearfix:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: '';
-  clear: both;
-  height: 0;
-}
-
 html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -219,20 +210,6 @@ html {
 *, *:before, *:after {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
-}
-
-.srOnly {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  -webkit-clip-path: inset(100%);
-          clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
 }
 
 @-webkit-keyframes flyingEarth {
@@ -450,7 +427,7 @@ h3 {
   text-transform: uppercase;
 }
 
-h1, h3, h4, h5, h6, h7 {
+h1, h3, h4, h5, h6 {
   font-family: 'Rokkitt', serif;
   color: #fdfefa;
 }
@@ -472,7 +449,7 @@ h6 {
   font-size: 3.5rem;
 }
 
-h7 {
+.howToHeading {
   font-size: 4rem;
 }
 
@@ -845,10 +822,6 @@ input[type="radio"]:checked + label {
 }
 
 .winnerPage img {
-  width: 28%;
-}
-
-.winnerPage img {
   position: absolute;
   -webkit-animation: flyingEarth 3s linear infinite;
           animation: flyingEarth 3s linear infinite;
@@ -996,8 +969,10 @@ header img {
   min-height: 640px;
   top: 0;
   z-index: 2;
-  background-color: rgba(79, 202, 219, 0.65);
   width: 100%;
+  background: url(./assets/jake-weirick-Q_RBVFFXR_g-unsplash_small.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .howToPlayDetails span {
@@ -1056,6 +1031,9 @@ header img {
 }
 
 @media (max-width: 770px) {
+  header {
+    background: url(./assets/mobile_jeremy-perkins-FsK54FVNRfM-unsplash.jpg);
+  }
   h1 {
     font-size: 6.5rem;
   }
@@ -1075,6 +1053,9 @@ header img {
   }
   .shadow {
     margin: 100px 0 50px;
+  }
+  main {
+    background: url(./assets/mobile_jake-weirick.jpg);
   }
   form {
     width: 70%;

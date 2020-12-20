@@ -262,7 +262,7 @@ app.addFirstIcons = function () {
 
 //Play Again button 
 app.playAgain = function () {
-    $("main").on('click', ".playAgain", function (event) {
+    $("main").on('click', ".playAgain", function () {
         // Reload page
         location.reload();
     });
@@ -270,7 +270,7 @@ app.playAgain = function () {
 
 //Press submit button to enter an answer
 app.submitButton = function () {
-    $("main").on('click', ".submit", function (event) {
+    $("main").on('click', ".submit", function () {
         // Count questions
         app.questionLevelCount++;
         app.questionCount++;
@@ -304,7 +304,7 @@ app.submitButton = function () {
 
 //Start2 button which appears after a level is reached; go to the next question:
 app.nextLevelButton = function () {
-    $("main").on('click', ".start2", function (event) {
+    $("main").on('click', ".start2", function () {
         //Trigger first start button to do all the same functions from the start
         $(".start").trigger('click');
         $(this).closest("div").empty();
@@ -322,7 +322,7 @@ app.nextLevelButton = function () {
 
 // If answer is selected, show Submit button
 app.inputRadioClick = function () {
-    $("main").on('click', "input:radio", function (event) {
+    $("main").on('click', "input:radio", function () {
         $(this).closest("div").closest("form").find("button").addClass("showSubmit");
     });
 }

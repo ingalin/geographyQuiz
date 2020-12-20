@@ -110,8 +110,10 @@ header img {
     min-height: 640px;
     top: 0;
     z-index: 2;
-    background-color: $blockTransp;
     width: 100%;
+    background: url(./assets/jake-weirick-Q_RBVFFXR_g-unsplash_small.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .howToPlayDetails span {

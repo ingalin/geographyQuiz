@@ -42,6 +42,10 @@
 
 @media (max-width: 770px) {
     // Header
+    header {
+        background: url(./assets/mobile_jeremy-perkins-FsK54FVNRfM-unsplash.jpg);
+    }
+
     h1 {
         font-size: 6.5rem;
     }
@@ -67,6 +71,10 @@
     }
 
     // Main 
+    main {
+        background: url(./assets/mobile_jake-weirick.jpg);
+    }
+
     form {
         width: 70%;
         padding: 10px 10px 30px;
