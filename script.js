@@ -113,7 +113,7 @@ app.countIncorrectAnswers = function () {
         // Stop time
         clearInterval(app.interval);
         // Show mwssage and new game button
-        $("main").html(`<h3 class="gameOver">Game Over</h3><button class="playAgain" type="submit">Play Again</button><img class="gameOverImg" src="styles/assets/hiclipartcom.png" alt="image of sad earth">`).addClass("levelsStyles");
+        $("main").html(`<h3 class="gameOver" role="alert">Game Over</h3><button role="alert" class="playAgain" type="submit">Play Again</button><img role="alert" class="gameOverImg" src="styles/assets/hiclipartcom.png" alt="image of sad earth">`).addClass("levelsStyles");
         app.playAgain();
     };
 }
@@ -162,7 +162,7 @@ app.timeReductionLimit = function () {
 // Winner page, show message, button to play again
 app.winnerFunction = function () {
     if (app.questionCount == winner) {
-        $("main").empty().append(`<div class="wrapper winnerPage"><h3 class="addAnimationWinner ">Winner!!!</h3><button class="playAgain" type="submit">Play Again</button><img src="styles/assets/hiclipartcom_smily.png" alt="image of smily earth"></div>`);
+        $("main").empty().append(`<div role="alert" aria-label="winner" class="wrapper winnerPage"><h3 class="addAnimationWinner ">Winner!!!</h3><button class="playAgain" type="submit">Play Again</button><img src="styles/assets/hiclipartcom_smily.png" alt="image of smily earth"></div>`);
         app.playAgain();
     }
 }
