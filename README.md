@@ -1,6 +1,6 @@
 # Geography Quiz
 
-Geography Game for kids in Class 1, 2 & 3, but adults enjoy this game as much as kids. 😊
+Geography Game for kids, but adults enjoy this game as much as kids. 😊
 
 Each game consists of 30 simple questions which are selected randomly from a 55 question list. Each question's answers are displayed in a random order.
 
