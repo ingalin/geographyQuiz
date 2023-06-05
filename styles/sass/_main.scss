@@ -31,7 +31,7 @@ form {
     background-color: $mainText;
     padding: 30px 40px 30px;
     border-radius: 20px;
-    box-shadow: 
+    box-shadow:
         0 0 30px 1rem $shadowsBorders,
         0 0 50px 2rem $borders,
         0 0 70px 3rem $mainText;
@@ -93,17 +93,19 @@ label::after {
 }
 
 // Hover, focus
-input[type="radio"]:hover + label::before, input[type="radio"]:focus + label::before {
+input[type="radio"]:hover+label::before,
+input[type="radio"]:focus+label::before {
     background: $mainText;
 }
 
-label:hover, label:focus {
+label:hover,
+label:focus {
     background-color: $borders;
     border: 7px solid $shadowsBorders;
 }
 
 // Toggle styles after it's checked
-input[type="radio"]:checked + label::after {
+input[type="radio"]:checked+label::after {
     background: $shadowsBorders;
     width: 25px;
     height: 25px;
@@ -111,11 +113,11 @@ input[type="radio"]:checked + label::after {
     top: 25.8px;
 }
 
-input[type="radio"]:checked + label::before {
+input[type="radio"]:checked+label::before {
     background-color: $borders;
 }
 
-input[type="radio"]:checked + label {
+input[type="radio"]:checked+label {
     background-color: $mainText;
     color: $headingColor;
 }
@@ -126,9 +128,11 @@ input[type="radio"]:checked + label {
 }
 
 //Progress bar
-.time, .mistakeCount {
+.time,
+.mistakeCount {
     width: calc(17% - 60px);
 }
+
 .time {
     order: -1;
 }
@@ -137,7 +141,8 @@ input[type="radio"]:checked + label {
     font-size: 4.5rem;
 }
 
-.fa-globe-americas, .fullStar {
+.fa-globe-americas,
+.fullStar {
     color: $borders;
 }
 
@@ -152,26 +157,45 @@ input[type="radio"]:checked + label {
     animation: glowing3 1300ms infinite;
 }
 
-.fa-circle, .emptyStar {
+.fa-circle,
+.emptyStar {
     color: $shadowsBorders;
 }
 
-.emptyStar, .fullStar {
+.emptyStar,
+.fullStar {
     padding: 10px;
 }
 
-.progress, .stars, .time {
+.progress,
+.stars,
+.time {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.timer, .stars {
+.timer,
+.stars {
     width: 100%;
 }
 
-.mistakes, .timer {
+.mistakes,
+.timer {
     text-align: center;
+
+    @media (min-width:691px) {
+        h4 {
+            max-width: 9rem;
+            margin: 0 auto;
+        }
+    }
+}
+
+.timer h4 {
+    @media (min-width:691px) {
+        margin-bottom: 0.4rem;
+    }
 }
 
 //Levels page styles
@@ -224,7 +248,8 @@ input[type="radio"]:checked + label {
     justify-content: center;
 }
 
-.levelsTime, .levelsMessage {
+.levelsTime,
+.levelsMessage {
     display: none;
 }
 
@@ -291,16 +316,3 @@ input[type="radio"]:checked + label {
     max-width: 60%;
     margin-top: 20px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

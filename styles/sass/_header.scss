@@ -68,7 +68,8 @@ header img {
     padding: 0;
 }
 
-.howToPlayButton i, .close i {
+.howToPlayButton i,
+.close i {
     padding: 5px 20px;
 }
 
@@ -84,15 +85,33 @@ header img {
     background-color: $mainText;
     color: $headingColor;
     font-size: 1.8rem;
-    padding: 10px 50px 20px;
+    padding: 10px 50px 60px;
     border-radius: 20px;
     border: 5px solid $borders;
     z-index: 3;
     text-align: left;
-    min-width: 350px;
+    max-width: 450px;
+    width: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+@media (max-width:380px) {
+    .howToPlayDetails {
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-width:320px) {
+    .howToPlayDetails {
+        font-size: 1.6rem;
+
+        h6 {
+            font-size: 2.4rem;
+        }
+    }
+
 }
 
 .closeButtonDiv {
@@ -135,6 +154,7 @@ header img {
     display: inline;
 }
 
-.howToPlayDetails a:hover, .howToPlayDetails a:focus {
+.howToPlayDetails a:hover,
+.howToPlayDetails a:focus {
     color: $shadowsBorders;
 }
